@@ -2,7 +2,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 use Symfony\Component\Console\Application;
-use minapp\console\buildDatabase;
+use minapp\system\buildDatabase;
 
 $application = new Application();
 $application->add(new buildDatabase());

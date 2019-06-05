@@ -10,9 +10,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use minapp\system\DB;
 
 
-class buildModels extends Command
+class buildDatabase extends Command
 {
-    protected $commandName = 'app:database';
+    protected $commandName = 'database';
     protected $commandDescription = "Create database";
 
     protected $commandArgumentName = "name";
@@ -42,16 +42,17 @@ class buildModels extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
      {
-        $name = $input->getArgument($this->commandArgumentName);
-        if($name){
+        // $name = $input->getArgument($this->commandArgumentName);
             $strJsonFileContents = file_get_contents(__DIR__."/env.json");
             $arrayEnv = json_decode($strJsonFileContents, true);
-           $db = new DB()
-        }
+            $db = new DB($arrayEnv['host'],$arrayEnv['user'],$arrayEnv['password'],$arrayEnv['database']);
+            if($db->connect()){
 
-        // if($input->getOption($this->commandOptionName)){
+            }else{
+                $text = ">>>>>> Database connect fail!<<<<<<\n".$arrayEnv['host']." | ". $arrayEnv['user'] ." | ". $arrayEnv['password'] ." | ". $arrayEnv['database'];
+                $output->writeln($text);
 
-        // }
-
+            }
+        
     }
 }
