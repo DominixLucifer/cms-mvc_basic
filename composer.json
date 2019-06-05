@@ -1,0 +1,20 @@
+{
+    "name": "minhm/project",
+    "authors": [
+        {
+            "name": "Bùi Văn Minh",
+            "email": "minhbv@icheck.vn"
+        }
+    ],
+    "require": {
+        "symfony/orm-pack": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+        	"minapp\\": "src/",
+        	"minapp\\site\\": "src/website",
+        	"minapp\\lib\\": "src/lib",
+        	"minapp\\system\\": "system"
+        }
+    }
+}
