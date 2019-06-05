@@ -2,7 +2,7 @@
 ## Công cụ && môi trường
 - php version >= 5.5
 - composer
-- webserver (apache, nghinx,...)
+- webserver (apache, nginx,...)
 ## Hướng dẫn cài đặt
 - Sửa lại thông tin database trong file env.json (hỗ trợ mysql) 
 - Tại thư mục gốc, chạy bash ```composer update``` và ```composer dump-autoload``` (yêu cầu đã cài composer).
