@@ -42,17 +42,50 @@ class buildDatabase extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
      {
-        // $name = $input->getArgument($this->commandArgumentName);
-            $strJsonFileContents = file_get_contents(__DIR__."/env.json");
-            $arrayEnv = json_decode($strJsonFileContents, true);
-            $db = new DB($arrayEnv['host'],$arrayEnv['user'],$arrayEnv['password'],$arrayEnv['database']);
+            $name = $input->getArgument($this->commandArgumentName);
+            $db = new DB();
             if($db->connect()){
 
+                    $db->createTable();
+                    $text = ">>>>>> create table success! <<<<<<\n";
+                    $output->writeln($text);
+
             }else{
-                $text = ">>>>>> Database connect fail!<<<<<<\n".$arrayEnv['host']." | ". $arrayEnv['user'] ." | ". $arrayEnv['password'] ." | ". $arrayEnv['database'];
+                $text = "<fg=red>>>>>>> Database connect fail! <<<<<<</>\n".$arrayEnv['host']." | ". $arrayEnv['user'] ." | ". $arrayEnv['password'] ." | ". $arrayEnv['database'];
                 $output->writeln($text);
 
             }
+
+            if($name){
+
+            if($name == "home"){
+                if($db->connect()){
+                    if($db->getValue() != 0){
+                         $text = "<fg=red>>>>>>> data already exists! <<<<<<</>\n";
+                        $output->writeln($text);
+                    }else{
+                        $db->insertTableHome();
+                        $text = "<fg=yellow>>>>>>> insert data success! <<<<<<</>\n";;
+                        $output->writeln($text);
+                    }
+                    
+                }else{
+                    $text = "<fg=red>>>>>>> Database connect fail! <<<<<<</>\n".$arrayEnv['host']." | ". $arrayEnv['user'] ." | ". $arrayEnv['password'] ." | ". $arrayEnv['database'];
+                    $output->writeln($text);
+                }
+            }else if($name == "migrate"){
+                if($db->connect()){
+                    $db->insertDataAll();
+                    $text = "<fg=yellow>>>>>>> insert data success! <<<<<<</>\n";;
+                    $output->writeln($text);
+                }
+            }else{
+                 $text = "<fg=red>>>>>>> nothing to do! <<<<<<</>\n";
+                    $output->writeln($text);
+            }
+
+        }
+
         
     }
 }

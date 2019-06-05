@@ -29,10 +29,13 @@ class Route
     		case 'about':
 				return $controller->AboutData();
     			break;
+    		case 'contact':
+				return $controller->ContactData();
+    			break;
 
     		
     		default:
-    			// code...
+    			// return $controller->HomeData();
     			break;
     	}
     	

@@ -66,8 +66,8 @@
     </script>
     <!-- //password-script -->
     <!--/ start-smoth-scrolling -->
-    <script src="js/move-top.js"></script>
-    <script src="js/easing.js"></script>
+    <script src="src/website/element/js/move-top.js"></script>
+    <script src="src/website/element/js/easing.js"></script>
     <script>
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event) {
