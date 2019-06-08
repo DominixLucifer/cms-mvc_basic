@@ -113,8 +113,8 @@ $total = count((array)$dataBanner);
                                             <p>Hãy hoàn thành form đăng kí bên dưới để chúng tôi có thể sắp xếp cho bạn một lịch học hợp lý nhất, mọi thắc mắc xin gửi thư đến địa chỉ <u>email: <?php echo $dataHome->email; ?></u> hoặc gọi điện đến số <u> <?php echo $dataHome->phone; ?></u> để được tư vấn miễn phí</p>
                                         </div>
                                         <div class="col-lg-5 form  wow slideInRight animated" id="reg-course-form">
-                                            <p id="result"></p>
-                                            <form enctype="multipart/form-data" class="w3f-form" role="form" id="w3n-submit-form ">
+                                            <h4 style="color: white" id="result"></h4>
+                                            <form enctype="multipart/form-data" class="w3f-form" role="form" id="w3n-submit-form">
                                                 <div class="frm-item">
                                                     <div class="label"><i class="fa fa-user-plus" aria-hidden="true"></i></div>
                                                     <input class="text" placeholder="Họ và tên *" type="text" value="" name="W3NF[9829][c21]" id="W3NF_9829_c21" />
@@ -146,34 +146,32 @@ $total = count((array)$dataBanner);
                             type : 'POST',
                             data : {
                                 fullname : $('#W3NF_9829_c21').val(),
+                                address : ' ',
                                 phone : $('#W3NF_9831_c83').val(),
                                 email : $('#W3NF_9830_c52').val(),
+                                Stclass : ' ',
+                                school : ' ',
+                                sex : ' ',
+                                learning : ' ',
+                                tieuhoc : ' ',
+                                toan : ' ',
+                                tiengviet : ' ',
+                                toeic : ' ',
+                                vatly : ' ',
+                                tienganh : ' ',
+                                laptrinh : ' ',
+                                monkhac :' ',
+                                count : ' ',
+                                purpose :' ',
                                 ask : $('#W3NF_9991_c193').val(),
-
-                                address : '',
-                                Stclass : '',
-                                school : '',
-                                sex : '',
-                                learning : '',
-                                tieuhoc : '',
-                                toan : '',
-                                tiengviet : '',
-                                toeic : '',
-                                vatly : '',
-                                tienganh : '',
-                                laptrinh : '',
-                                monkhac : '',
-                                count : '',
-                                purpose : '',
-
                                 key : 'submit-timgiasu'
 
                             },      
                         success : function (result){
                             console.log(result);
                             if(result == 1){
-                                $('#w3n-submit-form').hide();
-                                $('#result').html('Yêu cầu của bạn đang được gửi đi và đang xử lí')
+                                $('form').fadeIn(1000).hide();
+                                $('#result').html('Yêu cầu của bạn đang được gửi đi và đang xử lí').fadeIn(3000);
                             }else{
                                 alert('Lỗi không xác định! ');
                             }

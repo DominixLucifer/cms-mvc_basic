@@ -72,6 +72,14 @@ create TABLE userLogin(
 	email varchar(25) not null,
 	password text not null,
 	encrypt varchar(10) not null
+);
+create TABLE contact(
+	c_id int PRIMARY KEY AUTO_INCREMENT,
+	fullname varchar(30) not null,
+	email varchar(25) not null,
+	phone varchar(15) not null,
+	category varchar(50) not null,
+	c_ask text not null
 );';
 		mysqli_multi_query($this->__conn,$sql);
 	}
@@ -114,6 +122,17 @@ VALUES ("'.$fullname .'", "'.$username.'","'.$email.'","'.$password.'","'.$encry
 			}else{
 				return false;
 			}
+
+	}
+
+	function delete(){
+		$q=mysqli_query($this->__conn,"SHOW TABLES FROM ".$this->database);
+
+        while($r=mysqli_fetch_assoc($q)){
+        	$sql = "DROP TABLE ".$r["Tables_in_".$this->database]."";
+        	mysqli_query($this->__conn,$sql);
+        	echo "\e[33m+++".$sql."\n";
+         }
 
 	}
 	

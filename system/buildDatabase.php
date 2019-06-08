@@ -113,6 +113,21 @@ class buildDatabase extends Command
                 }
 
 
+            }else if($name == "delete"){
+                if($db->connect()){
+                $text = "<fg=red>------ Warning! When you continue, the program will delete the entire database ------</>\n";
+                    $output->writeln($text);
+                    $text = "<fg=red>Press 'yes' to continue, or press any key to stop.... </>\n";
+                    $output->writeln($text);
+                    $q = readline();
+                    readline_add_history($q);
+                    if($q == 'yes'){
+                        
+                        $output->writeln($db->delete());
+                    }else{
+                        exit(0);
+                    }
+                }
             }else{
                  $text = "<fg=red>>>>>>> nothing to do! <<<<<<</>\n";
                     $output->writeln($text);
