@@ -64,6 +64,14 @@ create TABLE findMaster(
 	count int not null,
 	purpose varchar(20) not null,
 	ask text not null
+);
+create TABLE userLogin(
+	u_id int PRIMARY KEY AUTO_INCREMENT,
+	fullname varchar(30) not null,
+	username varchar(20) not null,
+	email varchar(25) not null,
+	password text not null,
+	encrypt varchar(10) not null
 );';
 		mysqli_multi_query($this->__conn,$sql);
 	}
@@ -87,6 +95,26 @@ VALUES ("Sẵn sàng để đi", "Thúc đẩy <span>bản thân</span> vào tư
 		$query = mysqli_query($this->__conn,$sql);
 		$count = mysqli_num_rows($query);
 		return $count;
+	}
+	function createUser($fullname,$username,$email,$password,$encrypt){
+
+			if($encrypt == 'md5'){
+				$password = md5($password);
+				$sql = 'INSERT INTO userLogin (fullname,username,email,password,encrypt)
+VALUES ("'.$fullname .'", "'.$username.'","'.$email.'","'.$password.'","'.$encrypt.'")';
+				$a = mysqli_query($this->__conn,$sql) ? true : false;
+				return  $a;
+
+			}else if($encrypt == 'sha1'){
+				$password = sha1($password);
+				$sql = 'INSERT INTO userLogin (fullname,username,email,password,encrypt)
+VALUES ("'.$fullname .'", "'.$username.'","'.$email.'","'.$password.'","'.$encrypt.'")';
+				$a = mysqli_query($this->__conn,$sql)? true : false;
+				return $a;
+			}else{
+				return false;
+			}
+
 	}
 	
 }

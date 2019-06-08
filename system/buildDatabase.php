@@ -47,8 +47,6 @@ class buildDatabase extends Command
             if($db->connect()){
 
                     $db->createTable();
-                    $text = ">>>>>> create table success! <<<<<<\n";
-                    $output->writeln($text);
 
             }else{
                 $text = "<fg=red>>>>>>> Database connect fail! <<<<<<</>\n".$arrayEnv['host']." | ". $arrayEnv['user'] ." | ". $arrayEnv['password'] ." | ". $arrayEnv['database'];
@@ -79,10 +77,49 @@ class buildDatabase extends Command
                     $text = "<fg=yellow>>>>>>> insert data success! <<<<<<</>\n";;
                     $output->writeln($text);
                 }
+            }else if($name == 'createsuperuser'){
+                if($db->connect()){
+                $output->writeln([
+                    '<fg=yellow> ==============            ----</>',
+                     '<fg=yellow>| User Creator |=======>> | DB |          AUTHOR: VAN MIN</>',
+                    '<fg=yellow> ==============            ----</>',
+                        '',
+                    ]);
+                // $username;
+                // $password;
+                // $encyter;
+                $fullname = readline("Fullname (Keanu Reeves *): ");
+                readline_add_history($fullname);
+                $username = readline("Username (Dominix): ");
+                readline_add_history($username);
+                $email = readline("Email (minhbv@icheck.vn): ");
+                readline_add_history($email);
+                $password = readline("Password : ");
+                readline_add_history($password);
+                $encyter = readline("Encyter (md5,sha1): ");
+                readline_add_history($encyter);
+                $result = $db->createUser($fullname,$username,$email,$password,$encyter);
+                if($result){
+                    $text = "<fg=green>++++++ Create super user success ! ++++++</>\n";
+                    $output->writeln($text);
+                }else{
+                    $text = "<fg=red>------ Create super user fail ! ------</>\n";
+                    $output->writeln($text);
+                }
+
+            }else{
+                    $text = "<fg=red>>>>>>> Database connect fail! <<<<<<</>\n".$arrayEnv['host']." | ". $arrayEnv['user'] ." | ". $arrayEnv['password'] ." | ". $arrayEnv['database'];
+                    $output->writeln($text);
+                }
+
+
             }else{
                  $text = "<fg=red>>>>>>> nothing to do! <<<<<<</>\n";
                     $output->writeln($text);
             }
+
+
+
 
         }
 
