@@ -9,11 +9,18 @@ if(isset($_GET['route'])){
 	$route = new Route($url,$method);
 	$route->showController();
 	require_once($route->showController());
+}else 
+if(isset($_POST)){
+	$route = new Route('/','POST');
+	echo $route->postData($_POST,$_POST['key']);
 }else{
 	$route = new Route('home','GET');
 	$route->showController();
 	require_once($route->showController());
 }
+
+
+
 
 
 

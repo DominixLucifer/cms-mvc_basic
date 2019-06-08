@@ -15,7 +15,7 @@ class Route
      */
     public function __construct($requestLink,$requestMethod)
     {
-        $this->routeLink = $requestLink;
+    	$this->routeLink = $requestLink;
         $this->method = $requestMethod;
     }
     public function showController(){
@@ -23,22 +23,39 @@ class Route
     	$controllerLink = $this->routeLink;
 		$controller = new Controller();
     	switch ($controllerLink) {
-    		case 'home':
+    		case 'gioi-thieu':
 				return $controller->HomeData();
     			break;
-    		case 'about':
+    		case 'thong-tin':
 				return $controller->AboutData();
     			break;
-    		case 'contact':
+    		case 'lien-he':
 				return $controller->ContactData();
+    			break;
+
+    		case 'tim-gia-su':
+				return $controller->findMaster();
     			break;
 
     		
     		default:
-    			// return $controller->HomeData();
+    			return $controller->site404();
     			break;
     	}
     	
+    }
+    public function postData($data,$key){
+    	$controller = new Controller();
+
+    	switch ($key) {
+    		case 'submit-timgiasu':
+				return $controller->PostSearch($data,'findMaster');
+    			break;
+
+    		default:
+    			return 'error!';
+    			break;
+    	}
     }
 
 

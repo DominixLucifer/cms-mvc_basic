@@ -1,55 +1,124 @@
-    <!--/newsletter-->
-    <footer class="newsletter_right_w3agile bg-dark pymd-5 py-4">
-        <div class="container">
-            <div class="inner-sec-w3layouts py-md-5 py-3">
-                <h3 class="tittle text-center mb-md-5 mb-4 text-white">Subscribe our Newsletter</h3>
-                <div class="n-right-w3ls">
-                    <form action="#" method="post">
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="Name" placeholder="Name" required="">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="email" name="Email" placeholder=" Email Address" required="">
-                        </div>
+                <div id="footer">
+                    <div class="container">
+                        <div class="col-md-3 wow fadeInLeft info-footer">
+                            <p><?php echo $dataHome->description; ?>
 
-                        <div class="form-group">
-                            <input class="form-control submit text-uppercase" type="submit" value="Subscribe">
+                            
+                                <br/>Email: <?php echo $dataHome->email; ?>
+                          
+
+                            <ul class="icon social-footer">
+                                <li>
+                                    <a href="<?php echo $dataHome->linkFB; ?>" target="_blank" rel="nofollow"><i class="fab fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $dataHome->linkTW; ?>" target="_blank" rel="nofollow"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="clearfix"></div>
-                    </form>
-                </div>
-                <div class="row footer-bottom-wthree mt-lg-5 mt-3">
-                    <div class="col-lg-6 copyright">
-                        <h2><a class="navbar-brand" href="index.html">
-                            <?php echo $dataHome->name ?></a></h2>
-                        <p class="copy-right mt-3">© 2019 <?php echo $dataHome->name ?>. All Rights Reserved | Design by
-                            <a href="https://www.facebook.com/zake.death" target="_blank"> Văn Min</a>
-                        </p>
+                        <div class="col-md-3 wow fadeInUp">
+                            <h4 class="sm-title h4">Bài viết gần đây</h4>
+                            <div class="content row-2">
+                                <ul class="list">
+                                    <li>
+                                        <div class="pr-item">
+                                            <div class="canlendar">
+                                                <div class="gach-left"></div>
+                                                <div class="gach-bottom"></div>
+                                                <div class="goclich_bg"></div>
+                                                <!--                                <img src="-->
+                                                <!--/images/goclich.png" alt="calendar">-->
+                                                <div class="text">
+                                                    <span class="up">23</span>
+                                                    <span class="down">Tháng 06</span>
+                                                </div>
+                                            </div>
+                                            <div class="pr-content">
+                                                <a href="/tim-dong-doi-2018-nd39715.html">TÌM ĐỒNG ĐỘI 2018</a>
+                                                <div class="chat-add">
+
+                                                    <div class="view">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                        <span> 521 Lượt xem</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="pr-item">
+                                            <div class="canlendar">
+                                                <div class="gach-left"></div>
+                                                <div class="gach-bottom"></div>
+                                                <div class="goclich_bg"></div>
+                                                <!--                                <img src="-->
+                                                <!--/images/goclich.png" alt="calendar">-->
+                                                <div class="text">
+                                                    <span class="up">03</span>
+                                                    <span class="down">Tháng 05</span>
+                                                </div>
+                                            </div>
+                                            <div class="pr-content">
+                                                <a href="/kinh-nghiem-tim-trung-tam-uy-tin-khi-lam-gia-su-tai-ha-noi-nd39714.html">Kinh nghiệm tìm trung tâm uy tín khi làm gia sư tại Hà Nội</a>
+                                                <div class="chat-add">
+
+                                                    <div class="view">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                        <span> 231 Lượt xem</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="pr-item">
+                                            <div class="canlendar">
+                                                <div class="gach-left"></div>
+                                                <div class="gach-bottom"></div>
+                                                <div class="goclich_bg"></div>
+                                                <!--                                <img src="-->
+                                                <!--/images/goclich.png" alt="calendar">-->
+                                                <div class="text">
+                                                    <span class="up">02</span>
+                                                    <span class="down">Tháng 05</span>
+                                                </div>
+                                            </div>
+                                            <div class="pr-content">
+                                                <a href="/nen-hay-khong-tim-gia-su-lop-1-cho-con-nd39713.html">Nên hay không tìm gia sư lớp 1 cho con?</a>
+                                                <div class="chat-add">
+
+                                                    <div class="view">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                        <span> 94 Lượt xem</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 wow fadeInRight">
+                            <div class="content-footer text">
+                                <div class="box-ft box-fb" style="width:280px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 wow fadeInRight">
+                            <div class="content-footer text">
+                                <h4 class="sm-title h4">Bản đồ</h4>
+                                <div class="box-ft box-map">
+                                    <?php echo $dataHome->mapIframe; ?>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="col-lg-6 social-icon footer">
-                        <ul class="links-nav d-flex justify-content-end">
-                            <li>
-                                <a class="active" href="index.php?route=home">Home</a>
-                            </li>
-                            <li>
-                                <a href="index.php?route=about">About</a>
-                            </li>
-
-                            <li>
-                                <a href="index.php?route=contact">Contact</a>
-                            </li>
-                        </ul>
-                        <ul class="social-icons d-flex justify-content-end mt-3">
-                            <li class="mr-1"><a href="<?php echo $dataHome->linkFB ?>" target="_blank"><span class="fab fa-facebook-f"></span></a></li>
-                            <li class="mx-1"><a href="<?php echo $dataHome->linkTW ?>" target="_blank"><span class="fab fa-twitter"></span></a></li>
-
-                        </ul>
+                </div>
+                <div class="copyright">
+                    <div class="content-footer text">
+                        <p style="text-align: center;">© Copyright <a href="https://mangxahoi.club" target="_blank">MT social </a>.&nbsp;&nbsp; Designed by admin MT social <a href="https://mangxahoi.club" target="_blank">Văn Min </a></p>
                     </div>
-                    <div class="clearfix"></div>
+                    <span class="backtotop"><i class="fas fa-chevron-up"></i></span>
 
                 </div>
-
-            </div>
-        </div>
-    </footer>
-    <!--//newsletter-->

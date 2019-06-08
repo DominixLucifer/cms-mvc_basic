@@ -32,6 +32,28 @@ class siteModel
         }
         return json_encode($json);
     }
+
+    function insert($data){
+        $data = (array) $data;
+ 
+    $field_list = '';
+    $value_list = '';
+ 
+    // loop data
+    foreach ($data as $key => $value){
+        $field_list .= ",$key";
+        $value_list .= ",'".$value."'";
+    }
+ 
+    $sql = 'INSERT INTO '.$this->tableName. '('.trim($field_list, ',').') VALUES ('.trim($value_list, ',').')';
+ 
+    if(mysqli_query($this->connect->__conn, $sql)){
+        return true;
+    }else{
+        return false;
+    }
+
+    }
     
  
 }
