@@ -3,6 +3,8 @@ require __DIR__ . '/vendor/autoload.php';
 	
 use minapp\Route;
 
+session_start();
+
 if(isset($_GET['route'])){
 	$url = $_GET['route'];
 	$method = 'GET';
@@ -12,7 +14,8 @@ if(isset($_GET['route'])){
 }else 
 if(isset($_POST)){
 	$route = new Route('/','POST');
-	echo $route->postData($_POST,$_POST['key']);
+	echo $route->postController($_POST,$_POST['key']);
+	// var_dump($_POST['key']);
 }else{
 	$route = new Route('home','GET');
 	$route->showController();

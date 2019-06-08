@@ -36,6 +36,10 @@ class Route
     		case 'tim-gia-su':
 				return $controller->findMaster();
     			break;
+    		//backend
+    		case 'admin':
+				return $controller->homeAdmin();
+    			break;
 
     		
     		default:
@@ -44,12 +48,20 @@ class Route
     	}
     	
     }
-    public function postData($data,$key){
+    public function postController($data,$key){
     	$controller = new Controller();
 
     	switch ($key) {
     		case 'submit-timgiasu':
 				return $controller->PostSearch($data,'findMaster');
+    			break;
+    		case 'submit-contact':
+				return $controller->PostContact($data,'contact');
+    			break;
+
+    			//backend
+    		case 'login':
+				return $controller->postLoginUser($data,'userlogin');
     			break;
 
     		default:

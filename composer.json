@@ -13,6 +13,7 @@
         "psr-4": {
         	"minapp\\": "src/",
         	"minapp\\site\\": "src/website",
+            "minapp\\backend\\": "src/admin",
         	"minapp\\lib\\": "src/lib",
         	"minapp\\system\\": "system"
         }

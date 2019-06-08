@@ -54,6 +54,24 @@ class siteModel
     }
 
     }
+
+    function getRow($sql){
+
+    $result = mysqli_query($this->connect->__conn, $sql);
+ 
+    if (!$result){
+        return false;
+    }
+ 
+    $row = mysqli_fetch_object($result);
+ 
+ 
+    if ($row){
+        return $row;
+    }
+ 
+    return false;
+}
     
  
 }

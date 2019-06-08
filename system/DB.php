@@ -7,6 +7,7 @@ class DB
 	protected $database;
 	protected $username;
 	protected $password;
+	private $connection;
 	public $__conn;
 
 	public function __construct(){
@@ -27,6 +28,17 @@ class DB
 		}else{
 			return false;
 		} 
+	}
+	public function getConnection(){
+		$this->connection = null;
+
+        try{
+            $this->connection = mysqli_connect($this->host, $this->username, $this->password,$this->database);
+        }catch(PDOException $exception){
+            return "Connection failed: " . $exception->getMessage();
+        }
+
+        return $this->connection;
 	}
 	public function createTable(){
 		$sql = 'create TABLE HomeData(
@@ -71,7 +83,7 @@ create TABLE userLogin(
 	username varchar(20) not null,
 	email varchar(25) not null,
 	password text not null,
-	encrypt varchar(10) not null
+	permission int not null
 );
 create TABLE contact(
 	c_id int PRIMARY KEY AUTO_INCREMENT,
@@ -104,24 +116,13 @@ VALUES ("Sẵn sàng để đi", "Thúc đẩy <span>bản thân</span> vào tư
 		$count = mysqli_num_rows($query);
 		return $count;
 	}
-	function createUser($fullname,$username,$email,$password,$encrypt){
-
-			if($encrypt == 'md5'){
-				$password = md5($password);
-				$sql = 'INSERT INTO userLogin (fullname,username,email,password,encrypt)
-VALUES ("'.$fullname .'", "'.$username.'","'.$email.'","'.$password.'","'.$encrypt.'")';
-				$a = mysqli_query($this->__conn,$sql) ? true : false;
-				return  $a;
-
-			}else if($encrypt == 'sha1'){
-				$password = sha1($password);
-				$sql = 'INSERT INTO userLogin (fullname,username,email,password,encrypt)
-VALUES ("'.$fullname .'", "'.$username.'","'.$email.'","'.$password.'","'.$encrypt.'")';
+	function createUser($fullname,$username,$email,$password){
+				$password = password_hash($password, PASSWORD_BCRYPT);
+				$sql = 'INSERT INTO userLogin (fullname,username,email,password,permission)
+VALUES ("'.$fullname .'", "'.$username.'","'.$email.'","'.$password.'",1)';
 				$a = mysqli_query($this->__conn,$sql)? true : false;
 				return $a;
-			}else{
-				return false;
-			}
+
 
 	}
 

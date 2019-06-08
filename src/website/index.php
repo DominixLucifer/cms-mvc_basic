@@ -170,8 +170,8 @@ $total = count((array)$dataBanner);
                         success : function (result){
                             console.log(result);
                             if(result == 1){
-                                $('form').fadeIn(1000).hide();
-                                $('#result').html('Yêu cầu của bạn đang được gửi đi và đang xử lí').fadeIn(3000);
+                                $('form').fadeIn("slow").hide();
+                                $('#result').html('Yêu cầu của bạn đang được gửi đi và đang xử lí').fadeIn("slow");
                             }else{
                                 alert('Lỗi không xác định! ');
                             }

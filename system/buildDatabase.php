@@ -96,9 +96,7 @@ class buildDatabase extends Command
                 readline_add_history($email);
                 $password = readline("Password : ");
                 readline_add_history($password);
-                $encyter = readline("Encyter (md5,sha1): ");
-                readline_add_history($encyter);
-                $result = $db->createUser($fullname,$username,$email,$password,$encyter);
+                $result = $db->createUser($fullname,$username,$email,$password);
                 if($result){
                     $text = "<fg=green>++++++ Create super user success ! ++++++</>\n";
                     $output->writeln($text);

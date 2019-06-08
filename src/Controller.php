@@ -31,6 +31,24 @@ class Controller
         return $template;
     }
 
+    //backend
+    public function loginAdmin(){
+        $template = __DIR__.'/admin/login.php';
+        return $template;
+    }
+
+    public function homeAdmin(){
+        
+        if(isset($_SESSION['user'])){
+            $template = __DIR__.'/admin/home.php';
+        return $template;
+        }else{
+            return $this->loginAdmin();
+        }
+
+    }
+
+
     //post request
 
 
@@ -51,6 +69,45 @@ class Controller
 
         return $result;
     }
+
+    }
+    public function PostContact($data,$table){
+        $data = (array) $data;
+        if($data['fullname'] == '' ||  $data['phone'] == '' || $data['email'] == ''){
+            return 0;
+        }else{
+            unset($data['key']);
+            $data = (object) $data;
+            $actor = new siteModel($table);
+            $result = $actor->insert($data);
+
+            return $result;
+        }
+    
+    }
+
+    //backend
+
+     public function postLoginUser($data,$table){
+            $actor = new siteModel($table);
+            $sql = 'select * from '.$table.' where username="'.$data['username'].'"';
+            // return $sql;
+            $result = $actor->getRow($sql);
+            if($result){
+                if(password_verify($data['password'],$result->password)){
+                    $_SESSION['user'] = $data['username'];
+                    $url = '<script>window.location.href = "index.php?route=admin"</script>';
+                    return $url;
+                }else{
+                    return 'Sai username hoặc password';
+                }
+
+            }else{
+                return 'Lỗi không xác định';
+            }
+
+
+        // return $data;
 
     }
 }

@@ -108,6 +108,7 @@ $total = count((array)$dataBanner);
                     <div class="title-sm">
                         <center>Bạn có bất kì câu hỏi hay thắc mắc nào, hãy gửi cho chúng tôi một email, các tư vấn viên của chúng tôi sẽ đưa ra các giải pháp tốt nhất cho bạn ngay sau khi nhận được email của bạn.</center>
                     </div>
+                    <h4 style="text-align: center" id="result"></h4>
                     <div class="row wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                         <div class="col-md-3 tea-item  wow slideInLeft" style="visibility: visible; animation-name: slideInLeft;">
                             <a class="imagez">
@@ -118,7 +119,7 @@ $total = count((array)$dataBanner);
 		        Uông Thị Thu Nga - CSKH		    </a>
                                 <div class="icons">
                                     <ul>
-                                        <li><i class="fa fa-phone" aria-hidden="true"></i> 0913 876 686 </li>
+                                        <li><i class="fa fa-phone" aria-hidden="true"></i> <?php echo $dataHome->phone; ?> </li>
                                         <li><i class="fa fa-envelope" aria-hidden="true"></i> <?php echo $dataHome->email; ?></li>
                                     </ul>
                                 </div>
@@ -150,6 +151,38 @@ $total = count((array)$dataBanner);
                                 </div>
                             </form>
                         </div>
+                         <script>
+                $(document).ready(function(){
+                    $('#submit').on('click',function(){
+                         $.ajax({
+                            url : 'index.php',
+                            type : 'POST',
+                            data : {
+                                fullname : $('#W3NF_9819_c21').val(),
+                                email : $('#W3NF_9824_c343').val(),
+                                phone : $('#W3NF_9820_c143').val(),
+                                category : $('#W3NF_9823_c281').val(),
+                                c_ask : $('#W3NF_9821_c225').val(),
+                                
+                                key : 'submit-contact'
+
+                            },      
+                        success : function (result){
+                            console.log(result);
+                            if(result == 1){
+                                $('form').hide();
+                                $('#result').html('Yêu cầu của bạn đang được gửi đi và đang xử lí').fadeIn("slow");
+                            }else{
+                                alert('Lỗi không xác định! ');
+                            }
+                            
+                        }
+                        });
+
+                    });
+                   
+                });
+            </script>  
                     </div>
                 </div>
             </div>
