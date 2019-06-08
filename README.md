@@ -7,7 +7,7 @@
 - Sửa lại thông tin database trong file env.json (hỗ trợ mysql) 
 - Tại thư mục gốc, chạy bash ```composer update``` và ```composer dump-autoload``` (yêu cầu đã cài composer).
 - Tiếp tục chạy ```php minapp database``` để trình thuật sĩ tự động tạo các bảng.
-- Chạy tiếp lệnh ```php minapp database home``` và ```php minapp database migrate``` để trình thuật sĩ tự động insert dữ liệu cần thiết.
+- Chạy tiếp lệnh ```php minapp database home``` và ```php minapp database migrate``` để trình thuật sĩ tự động insert dữ liệu fake giúp website không bị lỗi.
 - Chạy lệnh ```php minapp database createsuperuser``` để tiến hành tạo superuser
 ## Tùy chỉnh ```minapp``` :
 - Ta có thể import nhiều class khác vào ứng dụng CLI PHP để run bằng cách thêm ```$application->add(new example());``` ví dụ với class example
