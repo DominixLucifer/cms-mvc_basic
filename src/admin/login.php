@@ -114,13 +114,19 @@
 
                             },      
                         success : function (result){
+                            console.log(result);
                             var delayInMilliseconds = 2000; //1 second
 
                             setTimeout(function() {
                                 $("#load").hide();
-                                setTimeout(function() {
-                                    $('body').html(result);
-                                },delayInMilliseconds);
+                                if(result == false){
+                                    $("#load").html('<div class="alert alert-danger" role="alert">Sai tài khoản hoặc mật khẩu</div>');
+                                }else{
+                                    setTimeout(function() {
+                                        eval('window.location.href = "index.php?route=admin"');
+                                    },delayInMilliseconds);
+                                }
+                                
                             }, delayInMilliseconds);
                                 
 

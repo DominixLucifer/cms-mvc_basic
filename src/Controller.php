@@ -114,14 +114,14 @@ class Controller
                     $_SESSION['user'] = $data['username'];
                     $_SESSION['email'] = $result->email;
                     $_SESSION['name'] = $result->fullname;
-                    $url = '<script>window.location.href = "index.php?route=admin"</script>';
-                    return $url;
+                    // $url = '<script>window.location.href = "index.php?route=admin"</script>';
+                    return true;
                 }else{
-                    return 'Sai username hoặc password';
+                    return false;
                 }
 
             }else{
-                return 'Lỗi không xác định';
+                return false;
             }
 
 

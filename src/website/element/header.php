@@ -20,7 +20,7 @@
                                 <div class="container slide-nav">
                                     <div class="row">
                                         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 res-scroll">
-                                            <h1 style="font-size: 0px;"> <?php echo $dataHome->name; ?>                            <a href="/"
+                                            <h1 style="font-size: 0px;"> <?php echo $dataHome->name; ?>                            <a href="index.php?route=gioi-thieu"
                                title="<?php echo $dataHome->name; ?>" class=" wow fadeInDown"
                                data-wow-delay=".6s">
                                 <img src="src/website/element/images/<?php echo $dataHome->logoSite; ?>" alt="Về trang chủ"
