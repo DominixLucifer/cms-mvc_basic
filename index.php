@@ -12,12 +12,12 @@ if(isset($_GET['route'])){
 	$route->showController();
 	require_once($route->showController());
 }else 
-if(isset($_POST)){
+if(isset($_POST) && isset($_POST['key'])){
 	$route = new Route('/','POST');
 	echo $route->postController($_POST,$_POST['key']);
 	// var_dump($_POST);
 }else{
-	$route = new Route('home','GET');
+	$route = new Route('gioi-thieu','GET');
 	$route->showController();
 	require_once($route->showController());
 }
