@@ -40,6 +40,12 @@ class Route
     		case 'admin':
 				return $controller->homeAdmin();
     			break;
+    		case 'logout':
+				return $controller->adminLogout();
+    			break;
+    		case 'admin-profile':
+				return $controller->adminProfile();
+    			break;
 
     		
     		default:
@@ -62,6 +68,9 @@ class Route
     			//backend
     		case 'login':
 				return $controller->postLoginUser($data,'userlogin');
+    			break;
+    		case 'update-user':
+				return $controller->postUserUpdate($data,'userlogin');
     			break;
 
     		default:

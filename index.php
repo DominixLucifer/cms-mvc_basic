@@ -15,7 +15,7 @@ if(isset($_GET['route'])){
 if(isset($_POST)){
 	$route = new Route('/','POST');
 	echo $route->postController($_POST,$_POST['key']);
-	// var_dump($_POST['key']);
+	// var_dump($_POST);
 }else{
 	$route = new Route('home','GET');
 	$route->showController();

@@ -10,28 +10,7 @@
 
         
 
-    <!-- fixed-top-->
-    <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-semi-dark navbar-shadow">
-    <div class="navbar-wrapper">
-        <div class="navbar-header">
-            <ul class="nav navbar-nav">
-                <li class="nav-item"><a class="navbar-brand" href="index.php?route=admin"><img class="brand-logo" alt="stack admin logo" src="src/admin/element/images/logo/stack-logo-light.png">
-                        <h2 class="brand-text">Admin</h2>
-                    </a></li>
-                <li class="nav-item d-md-none float-right"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-ellipsis pe-2x fa-rotate-90"></i></a></li>
-            </ul>
-        </div>
-        <div class="navbar-container content">
-            <div class="collapse navbar-collapse" id="navbar-mobile">
-                <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5"></i></a></li>
-                    <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i class="ficon icon-expand2"></i></a></li>
-                </ul>
-                               
-            </div>
-        </div>
-    </div>
-</nav>        
+<?php require_once __DIR__.'/element/navbar.php'; ?>       
 
 
 <div class="wrapper fadeInDown">
@@ -124,7 +103,7 @@
                         $(document).ready(function(){
                             $("#load").hide();
                     $('#btn-login').on('click',function(){  
-                    $("#load").html('<img src="https://www.drupal.org/files/issues/throbber_13.gif" width="30" height="30" /> Đang Lấy Thông Tin video. Vui Lòng Đợi...').fadeIn("slow");
+                    $("#load").html('<img src="https://www.drupal.org/files/issues/throbber_13.gif" width="30" height="30" /> Đang Lấy Thông Tin đăng nhập...').fadeIn("slow");
                          $.ajax({
                             url : 'index.php',
                             type : 'POST',
@@ -135,10 +114,19 @@
 
                             },      
                         success : function (result){
-                         $("#load").hide();
-                         $('body').html(result);
+                            var delayInMilliseconds = 2000; //1 second
+
+                            setTimeout(function() {
+                                $("#load").hide();
+                                setTimeout(function() {
+                                    $('body').html(result);
+                                },delayInMilliseconds);
+                            }, delayInMilliseconds);
+                                
+
+                                
                             
-                        }
+                            }
                         });
 
                     });

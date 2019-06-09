@@ -47,6 +47,22 @@ class Controller
         }
 
     }
+    public function adminLogout(){
+        if(isset($_SESSION['user'])){
+            unset($_SESSION['user']);
+            $this->loginAdmin();
+        }else{
+            return $this->loginAdmin();
+        }
+    }
+    public function adminProfile(){
+        if(isset($_SESSION['user'])){
+            $template = __DIR__.'/admin/profile.php';
+            return $template;
+        }else{
+            return $this->loginAdmin();
+        }
+    }
 
 
     //post request
@@ -96,6 +112,8 @@ class Controller
             if($result){
                 if(password_verify($data['password'],$result->password)){
                     $_SESSION['user'] = $data['username'];
+                    $_SESSION['email'] = $result->email;
+                    $_SESSION['name'] = $result->fullname;
                     $url = '<script>window.location.href = "index.php?route=admin"</script>';
                     return $url;
                 }else{
@@ -110,6 +128,94 @@ class Controller
         // return $data;
 
     }
+
+    public function postUserUpdate($data,$table){
+        if(isset($_SESSION['user'])){
+            $actor = new siteModel($table);
+            if(($data['password'] == $data['password_confirmation']) && $data['password'] != null){
+                $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+                $image = imageUpload($data['image']);
+                if($image == false){
+                    unset($data['image']);
+                    unset($data['key']);
+                    unset($data['password_confirmation']);
+                    $result = $actor->insert($data);
+                    return $result;
+                }else{
+                // $sql = 'UPDATE '.$table.' SET password="'.$data['password'].'", fullname="'..'" WHERE username="'.$_SESSION['user'].'"';
+                // mysqli_query()
+                    unset($data['key']);
+                    unset($data['password_confirmation']);
+                    $result = $actor->insert($data);
+                    return $result;
+            }
+
+            }else{
+                $image = imageUpload($data['image']);
+                 if($image == false){
+                    unset($data['image']);
+                    unset($data['key']);
+                    unset($data['password']);
+                    unset($data['password_confirmation']);
+                    $result = $actor->insert($data);
+                    return $result;
+                }else{
+                // $sql = 'UPDATE '.$table.' SET password="'.$data['password'].'", fullname="'..'" WHERE username="'.$_SESSION['user'].'"';
+                // mysqli_query()
+                    unset($data['key']);
+                    unset($data['password']);
+                     unset($data['password_confirmation']);
+                    $result = $actor->insert($data);
+                    return $result;
+            }
+            }
+            
+            // $sql = 'UPDATE '.$table.' SET '
+
+        }else{
+            return false;
+        }
+        
+
+    }
+
+    //service
+    private function imageUpload($data){
+        $target_dir = "src/admin/element/images/uploads/";
+$target_file = $target_dir . basename($data["image"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+
+    $check = getimagesize($data["image"]["tmp_name"]);
+    if($check !== false) {
+        $uploadOk = 1;
+    } else {
+        $uploadOk = 0;
+    }
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" ) {
+        $uploadOk = 0;
+        }
+
+
+
+    if ($uploadOk == 0) {
+        return false;
+// if everything is ok, try to upload file
+    } else {
+    if (move_uploaded_file($data["image"]["tmp_name"], $target_file)) {
+         return basename( $data["image"]["name"]);
+    } else {
+        return false;
+    }
+}
+
+    }
+
+
+
+
 }
 
  ?>

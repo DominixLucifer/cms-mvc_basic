@@ -83,6 +83,7 @@ create TABLE userLogin(
 	username varchar(20) not null,
 	email varchar(25) not null,
 	password text not null,
+	avatar text not null,
 	permission int not null
 );
 create TABLE contact(
@@ -118,8 +119,8 @@ VALUES ("Sẵn sàng để đi", "Thúc đẩy <span>bản thân</span> vào tư
 	}
 	function createUser($fullname,$username,$email,$password){
 				$password = password_hash($password, PASSWORD_BCRYPT);
-				$sql = 'INSERT INTO userLogin (fullname,username,email,password,permission)
-VALUES ("'.$fullname .'", "'.$username.'","'.$email.'","'.$password.'",1)';
+				$sql = 'INSERT INTO userLogin (fullname,username,email,password,permission,avatar)
+VALUES ("'.$fullname .'", "'.$username.'","'.$email.'","'.$password.'",1," ")';
 				$a = mysqli_query($this->__conn,$sql)? true : false;
 				return $a;
 
