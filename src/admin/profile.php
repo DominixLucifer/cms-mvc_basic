@@ -1,5 +1,16 @@
 
 <!-- - var navbarCustom = "fixed-top navbar-semi-dark navbar-shadow"-->
+<?php 
+use minapp\siteModel;
+$home = new siteModel('userlogin');
+$dataHome = $home->getAll();
+$dataHome = json_decode($dataHome);
+$dataHome = $dataHome->data[0];
+// var_dump($dataHome);
+
+
+
+ ?>
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <?php require_once __DIR__.'/element/head.php'; ?>
@@ -34,7 +45,7 @@
             <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item active"><a href="http://localhost/tol/public/backend">Home</a>
+                        <li class="breadcrumb-item active"><a href="index.php?route=admin">Home</a>
                         </li><li class="breadcrumb-item active">Profile config</li>
                     </ol>
                 </div>
@@ -83,8 +94,13 @@
       <div class="text-center">
         <!-- <img src="http://localhost/tol/public/images/upload/1554733186.jpg" class="avatar img-circle img-thumbnail" alt="avatar"> -->
         <h6>Upload a different photo...</h6>
-        <form class="form" id="registrationForm" enctype="multipart/form-data">
-                <input type="file" name="image" class="form-control">
+          <form>
+            <input type="file" id="file" class="form-control">
+            <div id="submitForm" class="btn btn-success">Upload</div>
+
+          </form>
+                
+          <form class="form" id="registrationForm" >
                 <input id="key" value="update-user" type="hidden">
       </div></hr><br>
 
@@ -108,18 +124,21 @@
           
         </div><!--/col-3-->
 
-
-             <div class="col-md-8"> 
+       
+             <div id="profile" class="col-md-8"> 
+                   <div id="kqtv" style="display: none" class="alert alert-info" role="alert">
+        <img src="https://www.drupal.org/files/issues/throbber_13.gif" width="30" height="30" /> Đang cập nhật thông tin...
+</div>
           <div class="tab-content">
             <div class="tab-pane active" id="home">
                 <hr>
-                  
+      
 
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                             <label for="last_name"><h4>Name</h4></label>
-                              <input type="text" class="form-control" name="fullname" id="fullname" value="<?php echo $_SESSION['name']; ?>" title="enter your name if any.">
+                              <input type="text" class="form-control" name="fullname" id="fullname" value="<?php echo $dataHome->fullname;  ?>" title="enter your name if any.">
                           </div>
                       </div>
 
@@ -161,24 +180,69 @@
              </div><!--/tab-pane-->
              <script>
                  $(document).ready(function(){
-                    $('#submit').on('click',function(){
-                         $.ajax({
-        url: 'index.php',
-        type: 'POST',
-        data: {
-            key : $('#key').val(),
-            fullname : $('#fullname').val(),
-            password : $('#password').val(),
-            password_confirmation : $('#password2').val(),
-        },
-        success: function (data) {
-            console.log(data)
-        },
-        cache: false,
-        contentType: false,
-        processData: false
-    });
+                  var delayInMilliseconds = 2000;
+                  $('#submit').on('click',function(){
+                      $('#kqtv').attr('style',' ');
+                      data = {
+                        key : $('#key').val(),
+                        fullname : $('#fullname').val(),
+                        image : $('#image').val(),
+                        password : $('#password').val(),
+                        password_confirmation : $('#password2').val(),
+                      };
+
+                      // console.log(data2);
+
+           $.ajax({
+                url: 'index.php',
+                type: 'POST',
+                data: data,
+                success: function (resp) {
+
+                  if(resp == 1){
+                    $('#home').hide();
+                    setTimeout(function() {
+                        $('#kqtv').attr('class','alert alert-info');
+                        $('#kqtv').html('Cập nhật thành công');
+                        setTimeout(function() {
+                          // eval('window.location.href = "index.php?route=admin-profile"');
+                        },delayInMilliseconds);
+                    },delayInMilliseconds);
+                    
+                  }else {
+                    
+                    setTimeout(function() {
+                        $('#kqtv').attr('class','alert alert-danger');
+                        $('#kqtv').html('Cập nhật Thất bại');
+                    },delayInMilliseconds);
+                  }
+
+                }
+            });
                     });
+                  $('#submitForm').on('click',function(){
+                    var dataForm = new FormData();
+                      jQuery.each(jQuery('#file')[0].files, function(i, file) {
+                      dataForm.append('file-'+i, file);
+                    });
+                      dataForm.push({"key":"upload-avatar"});
+                      console.log(dataForm['key']);
+                      // $.ajax({
+                      //   url: 'index.php',
+                      //   type: 'POST',
+                      //   data: dataForm,
+                      //   success: function (resp) {
+
+                      //   }
+
+                      // });
+
+                  });
+
+                  
+
+
+
                  });
              </script>
             

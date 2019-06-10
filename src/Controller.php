@@ -47,6 +47,16 @@ class Controller
         }
 
     }
+    public function adminEditHome(){
+        
+        if(isset($_SESSION['user'])){
+            $template = __DIR__.'/admin/homeedit.php';
+        return $template;
+        }else{
+            return $this->loginAdmin();
+        }
+
+    }
     public function adminLogout(){
         if(isset($_SESSION['user'])){
             unset($_SESSION['user']);
@@ -131,33 +141,41 @@ class Controller
 
     public function postUserUpdate($data,$table){
         if(isset($_SESSION['user'])){
+            $username = $_SESSION['user'];
+            $where = 'username="'.$username.'"';
             $actor = new siteModel($table);
+
+             if(isset($data['image']) && $data['image'] != ''){
+                    $image = $this->imageUpload($data['image']);
+                }else{
+                    $image = false;
+                }
+
             if(($data['password'] == $data['password_confirmation']) && $data['password'] != null){
                 $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
-                $image = imageUpload($data['image']);
+
+                
                 if($image == false){
                     unset($data['image']);
                     unset($data['key']);
                     unset($data['password_confirmation']);
-                    $result = $actor->insert($data);
+                    $result = $actor->update($data,$where);
                     return $result;
                 }else{
-                // $sql = 'UPDATE '.$table.' SET password="'.$data['password'].'", fullname="'..'" WHERE username="'.$_SESSION['user'].'"';
-                // mysqli_query()
                     unset($data['key']);
                     unset($data['password_confirmation']);
-                    $result = $actor->insert($data);
+                    $result = $actor->update($data,$where);
                     return $result;
             }
 
             }else{
-                $image = imageUpload($data['image']);
+
                  if($image == false){
                     unset($data['image']);
                     unset($data['key']);
                     unset($data['password']);
                     unset($data['password_confirmation']);
-                    $result = $actor->insert($data);
+                    $result = $actor->update($data,$where);
                     return $result;
                 }else{
                 // $sql = 'UPDATE '.$table.' SET password="'.$data['password'].'", fullname="'..'" WHERE username="'.$_SESSION['user'].'"';
@@ -165,7 +183,7 @@ class Controller
                     unset($data['key']);
                     unset($data['password']);
                      unset($data['password_confirmation']);
-                    $result = $actor->insert($data);
+                    $result = $actor->update($data,$where);
                     return $result;
             }
             }
@@ -179,9 +197,35 @@ class Controller
 
     }
 
+    function postHomeUpdate($data,$table,$file){
+        if(isset($_SESSION['user'])){
+            $where = 'id=1';
+            $actor = new siteModel($table);
+            $data['mapIframe'] = htmlspecialchars($data['mapIframe']);
+            if($file['image']['name'] != ''){
+                unset($data['key']);
+                $result = $this->imageUpload($file);
+                if($result){
+                    $data['logoSite'] =  $result;
+                    $reponsive = $actor->update($data,$where);
+                    return '<html><script>window.location = "index.php?route=admin-home";</script></html>';
+                }else{
+
+                    return '<html><script>window.location = "index.php?route=admin-home";</script></html>';
+                }
+            }else{
+                unset($data['key']);
+                $reponsive = $actor->update($data,$where);
+                return '<html><script>window.location = "index.php?route=admin-home";</script></html>';
+            }
+        }else{
+            return '<html><script>window.location = "index.php?route=admin";</script></html>';
+        }
+    }
+
     //service
     private function imageUpload($data){
-        $target_dir = "src/admin/element/images/uploads/";
+        $target_dir = "src/website/element/images/";
 $target_file = $target_dir . basename($data["image"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

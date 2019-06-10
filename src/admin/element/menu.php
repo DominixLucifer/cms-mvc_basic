@@ -11,39 +11,19 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="ft-grid"></i><span class="menu-title" data-i18n="">Subjects</span></a>
+            <li class=" nav-item"><a href="#"><i class="ft-grid"></i><span class="menu-title" data-i18n="">Home</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="documentation-content.html"><i class="fas fa-plus"></i> Add Subjects</a>
+                    <li><a class="menu-item" href="index.php?route=admin-home"><i class="fas fa-plus"></i> Edit home data</a>
                     </li>
-                    <li><a class="menu-item" href="documentation-card.html"><i class="fas fa-user-shield"></i> Permission</a>
-                    </li>
-                    <li><a class="menu-item" href="#"><i class="fas fa-list"></i> List Subjects</a>
+                    <li><a class="menu-item" href="#"><i class="fas fa-user-shield"></i> banner</a>
                         <ul class="menu-content">
-                            <li><a class="menu-item" href="documentation-color-primary.html"><i class="far fa-file-code"></i> IT</a>
+                            <li><a class="menu-item" href="index.php?route=admin-banner"><i class="far fa-file-code"></i> Add banner</a>
                             </li>
-                            <li><a class="menu-item" href="documentation-color-danger.html"><i class="fas fa-project-diagram"></i> Technology</a>
+                            <li><a class="menu-item" href="index.php?route=admin-list-banner"><i class="fas fa-project-diagram"></i> List banner</a>
                             </li>
-                            <li><a class="menu-item" href="documentation-color-danger.html"><i class="fas fa-square-root-alt"></i> Maths</a>
-                            </li>
-                            <li><a class="menu-item" href="documentation-color-success.html"><i class="fas fa-atom"></i> Chemistry</a>
-                            </li>
-                            <li><a class="menu-item" href="documentation-color-warning.html"><i class="fas fa-microscope"></i> Biology</a>
-                            </li>
-                            <li><a class="menu-item" href="documentation-color-info.html"><i class="far fa-comment-dots"></i> English</a>
-                            </li>
-                            <li><a class="menu-item" href="documentation-color-red.html"><i class="fas fa-book-reader"></i> Literature</a>
-                            </li>
-                            <li><a class="menu-item" href="documentation-color-pink.html"><i class="fab fa-galactic-senate"></i> History</a>
-                            </li>
-                            <li><a class="menu-item" href="documentation-color-blue.html"><i class="fas fa-globe-americas"></i> Geography</a>
-                            </li>
-                            <li><a class="menu-item" href="documentation-color-cyan.html"><i class="fas fa-paint-brush"></i> Fine Art</a>
-                            </li>
-                            
                         </ul>
                     </li>
-                    <li><a class="menu-item" href="documentation-icons.html">Icons</a>
-                    </li>
+                    
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="ft-box"></i><span class="menu-title" data-i18n="">Professional solutions</span></a>

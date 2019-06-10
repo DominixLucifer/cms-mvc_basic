@@ -14,7 +14,13 @@ if(isset($_GET['route'])){
 }else 
 if(isset($_POST) && isset($_POST['key'])){
 	$route = new Route('/','POST');
-	echo $route->postController($_POST,$_POST['key']);
+	if(isset($_FILES)){
+		echo $route->postController($_POST,$_POST['key'],$_FILES);
+		// var_dump($_FILES);
+	}else{
+		echo $route->postController($_POST,$_POST['key'],'');
+	}
+	
 	// var_dump($_POST);
 }else{
 	$route = new Route('gioi-thieu','GET');

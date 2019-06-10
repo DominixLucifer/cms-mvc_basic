@@ -62,11 +62,11 @@
                                             <div class="content-footer text">
                                                 <div class="call-header pull-right">
                                                     <div class="baoanh-alo-phone">
-                                                        <a href="tel:0342682117">
+                                                        <a href="tel:<?php echo $dataHome->phone; ?>">
                                                             <div class="animated infinite zoomIn baoanh-alo-ph-circle">&nbsp;</div>
                                                             <div class="animated infinite pulse baoanh-alo-ph-circle-fill">&nbsp;</div>
                                                             <div class="animated infinite tada baoanh-alo-ph-img-circle">&nbsp;</div>
-                                                            <p><span style="margin-left:45px;">0342682117</span></p>
+                                                            <p><span style="margin-left:45px;"><?php echo $dataHome->phone; ?></span></p>
                                                         </a>
                                                     </div>
                                                 </div>

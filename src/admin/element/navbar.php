@@ -23,7 +23,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="src/admin/element/backend/profile">Profile</a>
+                                    <a class="dropdown-item" href="index.php?route=admin-profile">Profile</a>
                                     <a class="dropdown-item" href="index.php?route=logout">
                                         Logout
                                     </a>

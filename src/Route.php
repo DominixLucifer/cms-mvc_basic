@@ -46,6 +46,9 @@ class Route
     		case 'admin-profile':
 				return $controller->adminProfile();
     			break;
+            case 'admin-home':
+                return $controller->adminEditHome();
+                break;
 
     		
     		default:
@@ -54,7 +57,7 @@ class Route
     	}
     	
     }
-    public function postController($data,$key){
+    public function postController($data,$key,$file){
     	$controller = new Controller();
 
     	switch ($key) {
@@ -72,6 +75,9 @@ class Route
     		case 'update-user':
 				return $controller->postUserUpdate($data,'userlogin');
     			break;
+            case 'home-update':
+                return $controller->postHomeUpdate($data,'homedata',$file);
+                break;
 
     		default:
     			return 'error!';

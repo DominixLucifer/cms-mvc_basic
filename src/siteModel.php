@@ -72,7 +72,21 @@ class siteModel
  
     return false;
 }
-    
+    function update($data, $where){
+
+        $sql = '';
+        foreach ($data as $key => $value){
+            $sql .= "$key = '".$value."',";
+        }
+ 
+        $sql = 'UPDATE '.$this->tableName. ' SET '.trim($sql, ',').' WHERE '.$where;
+ 
+        if(mysqli_query($this->connect->__conn, $sql)){
+            return true;
+        }else{
+            return false;
+        }
+    }
  
 }
 

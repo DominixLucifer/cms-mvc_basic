@@ -83,7 +83,7 @@ create TABLE userLogin(
 	username varchar(20) not null,
 	email varchar(25) not null,
 	password text not null,
-	avatar text not null,
+	image text not null,
 	permission int not null
 );
 create TABLE contact(
@@ -98,9 +98,10 @@ create TABLE contact(
 	}
 
 	public function insertTableHome(){
+		$map = "&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119241.31837400644!2d106.25438797459819!3d20.94081786015388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31359b46ef2fba69%3A0x2c3c5975d0eceb2e!2zVHAuIEjhuqNpIETGsMahbmcsIEjhuqNpIETGsMahbmc!5e0!3m2!1svi!2s!4v1560191108952!5m2!1svi!2s&quot; width=&quot;600&quot; height=&quot;450&quot; frameborder=&quot;0&quot; style=&quot;border:0&quot; allowfullscreen&gt;&lt;/iframe&gt;";
 		$sql = 'INSERT INTO homedata (name,contentText,keyword,phone,email,address,recommend,description,logoSite,mapIframe,linkFB,linkTW)
-VALUES ("Minh Tâm social","MT social Mạng xã hội mở, kết bạn, chat, làm quen bạn bè mới","MTsocial, mạng xã hội", "+84-340682117","minhbv@icheck.vn", "Quang Trung - Kinh Môn - Hải Dương","<strong>Trung tâm Văn Min</strong> là đơn vị thuộc Công ty MT social. Được thành lập năm 2017, đơn vị chúng tôi luôn lấy khách hàng và chất lượng dịch vụ làm mục tiêu chính để phát triển công ty. Với phương châm đó, qua gần 3 năm khẳng định và phát triển, MT social đã gặt hái được nhiều thành công tại Việt Nam. ","TRUNG TÂM GIA SƯ VĂN MIN - CÔNG TY MT SOCIAL<br/>Văn phòng: Lai Xá - Kim Chung - Hoài Đức -HN<br/>
-Phụ huynh liên hệ: 0342682117","logo.png","&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12901.528684109799!2d106.33158669038049!3d20.93428419750537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31359b359fd4763d%3A0xb656859adfa6c973!2zS2h1IGThu4tjaCB24bulIGR1IGzhu4tjaCDDgnUgQ8ah!5e0!3m2!1svi!2s!4v1559988081858!5m2!1svi!2s&quot; width=&quot;600&quot; height=&quot;450&quot; frameborder=&quot;0&quot; style=&quot;border:0&quot; allowfullscreen&gt;&lt;/iframe&gt;","https://www.facebook.com/zake.death","https://github.com/DominixLucifer/cms-mvc_basic");';
+VALUES ("Minh Tâm social","MT social Mạng xã hội mở, kết bạn, chat, làm quen bạn bè mới","MTsocial, mạng xã hội", "+84340682117","minhbv@icheck.vn", "Quang Trung - Kinh Môn - Hải Dương","<strong>Trung tâm Văn Min</strong> là đơn vị thuộc Công ty MT social. Được thành lập năm 2017, đơn vị chúng tôi luôn lấy khách hàng và chất lượng dịch vụ làm mục tiêu chính để phát triển công ty. Với phương châm đó, qua gần 3 năm khẳng định và phát triển, MT social đã gặt hái được nhiều thành công tại Việt Nam. ","TRUNG TÂM GIA SƯ VĂN MIN - CÔNG TY MT SOCIAL<br/>Văn phòng: Lai Xá - Kim Chung - Hoài Đức -HN<br/>
+Phụ huynh liên hệ: 0342682117","logo.png","'.$map.'","https://www.facebook.com/zake.death","https://github.com/DominixLucifer/cms-mvc_basic");';
 		mysqli_query($this->__conn,$sql);
 	}
 	public function insertDataAll(){
