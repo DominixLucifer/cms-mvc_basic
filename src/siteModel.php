@@ -87,6 +87,17 @@ class siteModel
             return false;
         }
     }
+
+    function remove($where){
+ 
+    // Delete
+    $sql = "DELETE FROM ".$this->tableName." WHERE ".$where;
+    if(mysqli_query($this->connect->__conn, $sql)){
+            return true;
+        }else{
+            return false;
+        }
+}
  
 }
 

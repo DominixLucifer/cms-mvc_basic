@@ -26,6 +26,18 @@
                     
                 </ul>
             </li>
+
+            <li class=" nav-item"><a href="documentation-videos.html"><i class="ft-monitor"></i><span class="menu-title" data-i18n="">Teaching staff</span></a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href="index.php?route=admin-teach-list"><i class="fas fa-plus"></i> Teaching staff list</a>
+                    </li>
+                    <li><a class="menu-item" href="index.php?route=admin-teach"><i class="fas fa-user-shield"></i> Add Teaching staff</a>
+                        
+                    </li>
+                    
+                </ul>
+            </li>
+
             <li class=" nav-item"><a href="#"><i class="ft-box"></i><span class="menu-title" data-i18n="">Professional solutions</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="documentation-components.html">Questions</a>
@@ -72,8 +84,7 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="documentation-videos.html"><i class="ft-monitor"></i><span class="menu-title" data-i18n="">Video Tutorials</span></a>
-            </li>
+            
             <li class=" nav-item"><a href="documentation-migration-guide.html"><i class="ft-refresh-cw"></i><span class="menu-title" data-i18n="">Update &amp; Migration</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Other</span></a>

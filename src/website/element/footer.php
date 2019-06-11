@@ -107,8 +107,8 @@
                         <div class="col-md-3 wow fadeInRight">
                             <div class="content-footer text">
                                 <h4 class="sm-title h4">Bản đồ</h4>
-                                <div class="box-ft box-map">
-                                    <?php echo $dataHome->mapIframe; ?>
+                                <div class="box-ft box-map responsive-map-container">
+                                    <?php echo htmlspecialchars_decode($dataHome->mapIframe); ?>
                                 </div>
                             </div>
 
@@ -122,3 +122,12 @@
                     <span class="backtotop"><i class="fas fa-chevron-up"></i></span>
 
                 </div>
+                <script>
+                    
+                     $('#doingu').click(function(){
+    $('html, body').animate({
+      scrollTop: $('#data-doingu').offset().top
+    }, 1000);
+    return false;
+  });
+                </script>

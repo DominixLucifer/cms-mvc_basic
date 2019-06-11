@@ -49,6 +49,18 @@ class Route
             case 'admin-home':
                 return $controller->adminEditHome();
                 break;
+            case 'admin-banner':
+                return $controller->adminBannerAdd();
+                break;
+            case 'admin-list-banner':
+                return $controller->adminListBanner();
+                break;
+            case 'admin-teach-list':
+                return $controller->adminListTeach();
+                break;
+            case 'admin-teach':
+                return $controller->adminTeach();
+                break;
 
     		
     		default:
@@ -77,6 +89,12 @@ class Route
     			break;
             case 'home-update':
                 return $controller->postHomeUpdate($data,'homedata',$file);
+                break;
+            case 'add-banner':
+                return $controller->postAddBanner($data,'banner',$file);
+                break;
+            case 'delete-banner':
+                return $controller->postDelBanner($data,'banner');
                 break;
 
     		default:

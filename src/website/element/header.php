@@ -46,12 +46,16 @@
                                                                 <a class="" href="index.php?route=gioi-thieu">GIỚI THIỆU</a>
                                                             </li>
                                                             <li class=" ">
+                                                                <a id="doingu" href="#DOINGU">Đội NGŨ</a>
+                                                            </li>
+                                                            <li class=" ">
                                                                 <a class="" href="index.php?route=tim-gia-su">TÌM GIA SƯ</a>
                                                             </li>
 
                                                             <li class=" ">
                                                                 <a class="" href="index.php?route=lien-he">LIÊN HỆ</a>
                                                             </li>
+                                                            
 
                                                         </ul>
                                                     </div>

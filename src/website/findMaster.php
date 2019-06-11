@@ -12,6 +12,12 @@ $dataBanner = $homeBanner->getAll();
 $dataBanner = json_decode($dataBanner);
 $dataBanner = $dataBanner->data;
 $total = count((array)$dataBanner);
+
+$homeTeach = new siteModel('teach');
+$dataTeach = $homeTeach->getAll();
+$dataTeach = json_decode($dataTeach);
+$dataTeach = $dataTeach->data;
+$total2 = count((array)$dataTeach);
  ?>
 
 
@@ -64,7 +70,7 @@ $total = count((array)$dataBanner);
                         <h3 id="result" style="text-align: center;"></h3>
 
                         <form enctype="multipart/form-data" class="form-horizontal w3f-form" id="w3n-submit-form">
-                            <h3 class="cf-heading">Thông tin cá nhân</h3>
+                            <h3 class="cf-heading">Thông tin cá nhân (bắt buộc nhập)</h3>
                             <div class="form-group w3-form-group">
                                 <label class="col-sm-4 control-label w3-form-label required">
                                     Họ tên
@@ -313,7 +319,7 @@ $total = count((array)$dataBanner);
 
                         <img src="/thong-ke.jpg" width="0" height="0" style="width: 0; height: 0; display: none;" rel="nofollow" alt="Thong ke" />
                     </div>
-
+                    <?php require_once(__DIR__.'/element/teach.php'); ?>
                     <?php require_once(__DIR__.'/element/partner.php'); ?>
                 </div>
 
@@ -323,6 +329,9 @@ $total = count((array)$dataBanner);
                             <script>
                 $(document).ready(function(){
                     $('#submiter').on('click',function(){
+                        if($('#W3NF_10062_c22').val() == '' || $('#W3NF_10063_c53').val() == '' || $('#W3NF_10064_c84').val() == '' || $('#W3NF_10065_c115').val() == ''){
+                            alert('Vui lòng nhập thông tin yêu cầu !');
+                        }else{
                          $.ajax({
                             url : 'index.php',
                             type : 'POST',
@@ -360,6 +369,7 @@ $total = count((array)$dataBanner);
                             
                         }
                         });
+                     }
 
                     });
                    

@@ -12,6 +12,12 @@ $dataBanner = $homeBanner->getAll();
 $dataBanner = json_decode($dataBanner);
 $dataBanner = $dataBanner->data;
 $total = count((array)$dataBanner);
+
+$homeTeach = new siteModel('teach');
+$dataTeach = $homeTeach->getAll();
+$dataTeach = json_decode($dataTeach);
+$dataTeach = $dataTeach->data;
+$total2 = count((array)$dataTeach);
  ?>
 
  <!DOCTYPE html>
@@ -83,8 +89,8 @@ $total = count((array)$dataBanner);
                 <div id="map">
                     <div class="content-footer text">
                         <h4 class="sm-title h4">Map</h4>
-                        <div class="box-ft box-map">
-                            <?php echo $dataHome->mapIframe; ?>
+                        <div class="box-ft box-map responsive-map-container">
+                            <?php echo htmlspecialchars_decode($dataHome->mapIframe); ?>
                         </div>
                     </div>
 
@@ -154,6 +160,9 @@ $total = count((array)$dataBanner);
                          <script>
                 $(document).ready(function(){
                     $('#submit').on('click',function(){
+                        if($('#W3NF_9819_c21').val() == '' || $('#W3NF_9824_c343').val() == '' || $('#W3NF_9820_c143').val() == '' || $('#W3NF_9823_c281').val() == '' || $('#W3NF_9821_c225').val() == ''){
+                            alert('Vui lòng nhập đầy đủ thông tin ở form !')
+                        }else{
                          $.ajax({
                             url : 'index.php',
                             type : 'POST',
@@ -178,6 +187,7 @@ $total = count((array)$dataBanner);
                             
                         }
                         });
+                     }
 
                     });
                    
@@ -190,7 +200,7 @@ $total = count((array)$dataBanner);
     </div>
 
     
-
+    <?php require_once(__DIR__.'/element/teach.php'); ?>
     <?php require_once(__DIR__.'/element/partner.php'); ?>
 </div>
 

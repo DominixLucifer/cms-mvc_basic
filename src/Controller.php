@@ -73,12 +73,51 @@ class Controller
             return $this->loginAdmin();
         }
     }
+    public function adminBannerAdd(){
+        if(isset($_SESSION['user'])){
+            $template = __DIR__.'/admin/banneradd.php';
+            return $template;
+        }else{
+            return $this->loginAdmin();
+        }
+    }
+    public function adminListBanner(){
+        if(isset($_SESSION['user'])){
+            $template = __DIR__.'/admin/bannerlist.php';
+            return $template;
+        }else{
+            return $this->loginAdmin();
+        }
+    }
+    public function adminListTeach(){
+        if(isset($_SESSION['user'])){
+            $template = __DIR__.'/admin/teachlist.php';
+            return $template;
+        }else{
+            return $this->loginAdmin();
+        }
+    }
+
+    public function adminTeach(){
+        if(isset($_SESSION['user'])){
+            $template = __DIR__.'/admin/teach.php';
+            return $template;
+        }else{
+            return $this->loginAdmin();
+        }
+    }
+
+
+
+
+
 
 
     //post request
 
 
     public function PostSearch($data,$table){
+        $date = getdate();
         $data['subject'] = '';
         $data = (object) $data;
         if($data->fullname == '' ||  $data->phone == '' || $data->email == ''){
@@ -89,6 +128,7 @@ class Controller
         $data = (array) $data;
         array_splice($data, 8, 8);
         unset($data['key']);
+        $data['created_at'] = $date['year'].'-'.$date['mon'].'-'.$date['mday'].' | '.$date['hours'].':'.$date['minutes'].':'.$date['seconds'];
         $data = (object) $data;
         $actor = new siteModel($table);
         $result = $actor->insert($data);
@@ -99,10 +139,12 @@ class Controller
     }
     public function PostContact($data,$table){
         $data = (array) $data;
+        $date = getdate();
         if($data['fullname'] == '' ||  $data['phone'] == '' || $data['email'] == ''){
             return 0;
         }else{
             unset($data['key']);
+            $data['created_at'] = $date['year'].'-'.$date['mon'].'-'.$date['mday'].' | '.$date['hours'].':'.$date['minutes'].':'.$date['seconds'];
             $data = (object) $data;
             $actor = new siteModel($table);
             $result = $actor->insert($data);
@@ -197,7 +239,7 @@ class Controller
 
     }
 
-    function postHomeUpdate($data,$table,$file){
+    public function postHomeUpdate($data,$table,$file){
         if(isset($_SESSION['user'])){
             $where = 'id=1';
             $actor = new siteModel($table);
@@ -222,6 +264,45 @@ class Controller
             return '<html><script>window.location = "index.php?route=admin";</script></html>';
         }
     }
+    public function postAddBanner($data,$table,$file){
+        if(isset($_SESSION['user'])){
+            $date = getdate();
+            $actor = new siteModel($table);
+            unset($data['key']);
+            $data['created_at'] = $date['year'].'-'.$date['mon'].'-'.$date['mday'].' | '.$date['hours'].':'.$date['minutes'].':'.$date['seconds'];
+            if($file['image']['name'] != ''){
+                $result = $this->imageUpload($file);
+                if($result){
+                    $data['banner_image'] =  $result;
+                    $reponsive = $actor->insert($data);
+                    return '<html><script>window.location = "index.php?route=admin-list-banner";</script></html>';
+                }else{
+
+                    return '<html><script>window.location = "index.php?route=admin-home";</script></html>';
+                }
+            }else{
+                
+                $reponsive = $actor->insert($data);
+                return '<html><script>window.location = "index.php?route=admin-list-banner";</script></html>';
+            }
+        }
+    }
+    public function postDelBanner($data,$table){
+        if(isset($_SESSION['user'])){
+            $actor = new siteModel($table);
+            $id = $data['id'];
+            $where = 'banner_id = '.$id;
+            $reponsive = $actor->remove();
+            if($reponsive){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+    }
+
+
 
     //service
     private function imageUpload($data){
