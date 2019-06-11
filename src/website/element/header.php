@@ -20,7 +20,7 @@
                                 <div class="container slide-nav">
                                     <div class="row">
                                         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 res-scroll">
-                                            <h1 style="font-size: 0px;"> <?php echo $dataHome->name; ?>                            <a href="index.php?route=gioi-thieu"
+                                            <h1 style="font-size: 0px;"> <?php echo $dataHome->name; ?>                            <a href="gioi-thieu.html"
                                title="<?php echo $dataHome->name; ?>" class=" wow fadeInDown"
                                data-wow-delay=".6s">
                                 <img src="src/website/element/images/<?php echo $dataHome->logoSite; ?>" alt="Về trang chủ"
@@ -43,17 +43,17 @@
                                                     <div class="collapse navbar-collapse" id="myNavbar">
                                                         <ul class="nav navbar-nav">
                                                             <li class=" ">
-                                                                <a class="" href="index.php?route=gioi-thieu">GIỚI THIỆU</a>
+                                                                <a class="" href="gioi-thieu.html">GIỚI THIỆU</a>
                                                             </li>
                                                             <li class=" ">
                                                                 <a id="doingu" href="#DOINGU">Đội NGŨ</a>
                                                             </li>
                                                             <li class=" ">
-                                                                <a class="" href="index.php?route=tim-gia-su">TÌM GIA SƯ</a>
+                                                                <a class="" href="tim-gia-su.html">TÌM GIA SƯ</a>
                                                             </li>
 
                                                             <li class=" ">
-                                                                <a class="" href="index.php?route=lien-he">LIÊN HỆ</a>
+                                                                <a class="" href="lien-he.html">LIÊN HỆ</a>
                                                             </li>
                                                             
 

@@ -27,7 +27,7 @@ class Controller
         return $template;
     }
     public function site404(){
-        $template= __DIR__.'/website/element/404.html';
+        $template= __DIR__.'/../404.html';
         return $template;
     }
 

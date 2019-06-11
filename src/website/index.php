@@ -52,7 +52,7 @@ $total2 = count((array)$dataTeach);
                         <div class="container">
                             <div class="title wow bounce animated">
                                 <center>
-                                    <a href="/gioi-thieu-ve-cong-ty-nc7550.html"><h2>Giới thiệu <?php echo $dataHome->name; ?></h2></a>
+                                    <a href="#"><h2>Giới thiệu <?php echo $dataHome->name; ?></h2></a>
                                     <div class="gach-left"></div>
                                     <div class="gach-right"></div>
                                 </center>

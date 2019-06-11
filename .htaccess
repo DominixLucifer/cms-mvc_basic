@@ -1,0 +1,5 @@
+RewriteEngine On
+Options +FollowSymlinks
+RewriteBase / 
+ErrorDocument 404 /404.html
+RewriteRule ^([^/]*)\.html$ /index.php?route=$1 [L]
