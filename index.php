@@ -5,6 +5,8 @@ use minapp\Route;
 
 session_start();
 
+$config = ['root'=> __DIR__];
+
 if(isset($_GET['route'])){
 	$url = $_GET['route'];
 	$method = 'GET';

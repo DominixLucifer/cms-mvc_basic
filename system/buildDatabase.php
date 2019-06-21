@@ -73,9 +73,17 @@ class buildDatabase extends Command
                 }
             }else if($name == "migrate"){
                 if($db->connect()){
-                    $db->insertDataAll();
-                    $text = "<fg=yellow>>>>>>> insert data success! <<<<<<</>\n";;
-                    $output->writeln($text);
+                    $bool = $db->insertDataAll();
+                    if($bool){
+                        $text = "<fg=yellow>>>>>>> insert data success! <<<<<<</>\n";;
+                        $output->writeln($text);
+                    }else {
+                        $text = "<fg=red>>>>>>> insert data fail! <<<<<<</>\n";;
+                        $output->writeln($text);
+                    }
+                    // $text = "<fg=yellow>>>>>>> insert data success! <<<<<<</>\n";;
+                    // $output->writeln($bool);
+                    
                 }
             }else if($name == 'createsuperuser'){
                 if($db->connect()){

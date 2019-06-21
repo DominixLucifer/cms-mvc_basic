@@ -74,7 +74,7 @@ class Route
 
     	switch ($key) {
     		case 'submit-timgiasu':
-				return $controller->PostSearch($data,'findMaster');
+				return $controller->PostSearch($data,'findmaster');
     			break;
     		case 'submit-contact':
 				return $controller->PostContact($data,'contact');

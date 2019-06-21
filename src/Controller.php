@@ -133,7 +133,7 @@ class Controller
         $actor = new siteModel($table);
         $result = $actor->insert($data);
 
-        return $result;
+        return json_encode($data);
     }
 
     }

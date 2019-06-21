@@ -164,7 +164,7 @@ $total2 = count((array)$dataTeach);
                             alert('Vui lòng nhập đầy đủ thông tin ở form !')
                         }else{
                          $.ajax({
-                            url : 'index.php',
+                            url : '/index.php',
                             type : 'POST',
                             data : {
                                 fullname : $('#W3NF_9819_c21').val(),

@@ -47,7 +47,7 @@ $total2 = count((array)$dataTeach);
                         .dmca {
                             margin-top: 20px;
                         }
-                    </style><img src="/thong-ke.jpg" width="0" height="0" style="width: 0; height: 0; display: none;" rel="nofollow" alt="Thong ke" />
+                    </style><img src="src/website/element/images/thong-ke.jpg" width="0" height="0" style="width: 0; height: 0; display: none;" rel="nofollow" alt="Thong ke" />
                     <div id="row-1" class="row-1 wow slideInUp animated">
                         <div class="container">
                             <div class="title wow bounce animated">
@@ -149,11 +149,9 @@ $total2 = count((array)$dataTeach);
                     $('#submitForm').on('click',function(){ 
                         if($('#W3NF_9829_c21').val() == '' || $('#W3NF_9831_c83').val() == '' || $('#W3NF_9830_c52').val() == '' ||  $('#W3NF_9991_c193').val() == ''){
                             alert('Vui lòng nhập đủ thông tin !');
+
                         }else{ 
-                         $.ajax({
-                            url : 'index.php',
-                            type : 'POST',
-                            data : {
+                            var data = {
                                 fullname : $('#W3NF_9829_c21').val(),
                                 address : ' ',
                                 phone : $('#W3NF_9831_c83').val(),
@@ -175,15 +173,21 @@ $total2 = count((array)$dataTeach);
                                 ask : $('#W3NF_9991_c193').val(),
                                 key : 'submit-timgiasu'
 
-                            },      
+                            };
+                            console.log(data);
+                         $.ajax({
+                            url : '/index.php',
+                            type : 'POST',
+                            data : data, 
+                            contentType: "application/x-www-form-urlencoded;charset=utf-8",     
                         success : function (result){
                             console.log(result);
-                            if(result == 1){
-                                $('form').fadeIn("slow").hide();
-                                $('#result').html('Yêu cầu của bạn đang được gửi đi và đang xử lí').fadeIn("slow");
-                            }else{
-                                alert('Lỗi không xác định! ');
-                            }
+                            // if(result == 1){
+                            //     $('form').fadeIn("slow").hide();
+                            //     $('#result').html('Yêu cầu của bạn đang được gửi đi và đang xử lí').fadeIn("slow");
+                            // }else{
+                            //     alert('Lỗi không xác định! ');
+                            // }
                             
                         }
                         });

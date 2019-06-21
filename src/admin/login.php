@@ -104,15 +104,17 @@
                             $("#load").hide();
                     $('#btn-login').on('click',function(){  
                     $("#load").html('<img src="https://www.drupal.org/files/issues/throbber_13.gif" width="30" height="30" /> Đang Lấy Thông Tin đăng nhập...').fadeIn("slow");
-                         $.ajax({
-                            url : 'index.php',
-                            type : 'POST',
-                            data : {
+                          var data = {
                                 username : $('#login-username').val(),
                                 password : $('#login-password').val(),
                                 key : 'login'
 
-                            },      
+                            };
+                            console.log(data);
+                         $.ajax({
+                            url : '/index.php',
+                            type : 'POST',
+                            data : data,      
                         success : function (result){
                             console.log(result);
                             var delayInMilliseconds = 2000; //1 second

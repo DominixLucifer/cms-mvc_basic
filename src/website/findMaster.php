@@ -333,7 +333,7 @@ $total2 = count((array)$dataTeach);
                             alert('Vui lòng nhập thông tin yêu cầu !');
                         }else{
                          $.ajax({
-                            url : 'index.php',
+                            url : '/index.php',
                             type : 'POST',
                             data : {
                                 fullname : $('#W3NF_10062_c22').val(),
