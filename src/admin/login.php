@@ -1,163 +1,369 @@
+<!doctype html>
+<html lang="en">
+<?php require_once(__DIR__.'/element/head.php'); ?>
 
-<!-- - var navbarCustom = "fixed-top navbar-semi-dark navbar-shadow"-->
-<!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="ltr">
+<style>
+  html {
+  background-color: #56baed;
+}
 
-<?php require_once __DIR__.'/element/head.php'; ?>
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+
+a {
+  color: #92badd;
+  display:inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+h2 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display:inline-block;
+  margin: 40px 8px 10px 8px; 
+  color: #cccccc;
+}
 
 
-<body class="vertical-layout vertical-menu 2-columns  fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
+/* STRUCTURE */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+#formFooter {
+  background-color: #f6f6f6;
+  border-top: 1px solid #dce8f1;
+  padding: 25px;
+  text-align: center;
+  -webkit-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+
+
+/* TABS */
+
+h2.inactive {
+  color: #cccccc;
+}
+
+h2.active {
+  color: #0d0d0d;
+  border-bottom: 2px solid #5fbae9;
+}
+
+
+
+/* FORM TYPOGRAPHY*/
+
+input[type=button], input[type=submit], input[type=reset]  {
+  background-color: #56baed;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  background-color: #39ace7;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+input[type=text] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+input[type=text]:placeholder {
+  color: #cccccc;
+}
+
+
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+} 
+</style>
+<body>
+
+<div class="wrapper">
+
+    <div class="main-panel">
         
 
-<?php require_once __DIR__.'/element/navbar.php'; ?>       
 
+        <div class="content">
+            <div class="container-fluid">
+                <div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
 
-<div class="wrapper fadeInDown">
-            <div id="formContent">
-              <!-- Tabs Titles -->
-          
-              <!-- Icon -->
-              <div class="fadeIn first">
-                <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
-               <i class="fas fa-user-circle"></i>
-              </div>
-          
-              <!-- Login Form -->
-              
-          <div id="loginbox" style="display:none; margin-top:50px;" class="mainbox col-md-12">                    
-            <div class="panel panel-info" >
-                    <div class="panel-heading">
-                        <div class="panel-title">Sign In</div>
-                                                           <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="src/admin/element/password/reset">Forgot password?</a></div>
-                                                        
-                    </div>     
+    <!-- Icon -->
+    <div class="fadeIn first">
+     <i class="fas fa-user"></i>
+    </div>
 
-                    <div style="padding-top:30px" class="panel-body" >
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="login-username" class="fadeIn second" name="Username" placeholder="Username">
+      <input type="text" id="login-password" class="fadeIn third" name="Password" placeholder="Password">
+      <input type="submit" class="fadeIn fourth" value="Log In" id="btn-login">
+      <div class="alert alert-info" role="alert" id="load">
+      </div>
+    </form>
 
-                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                            
-                        <div id="loginform" class="form-horizontal">                                     
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="login-username" type="text" class="form-control"  placeholder="User name" required>
-                                                                                
-                                    </div>
-                                     
-                                
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <input id="login-password" type="password" class="form-control"  placeholder="password" required>
-                                                                            </div>
-                                    
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
 
-                                
-                            <div class="input-group">
-                                      <div class="checkbox">
-                                        <label>
-                                          <input id="login-remember" class="form-check-input" type="checkbox" name="remember" > Remember me
-                                        </label>
-                                      </div>
-                                    </div>
+  </div>
+</div>
 
-
-                                <div style="margin-top:10px" class="form-group">
-                                    <!-- Button -->
-
-                                    <div class="col-sm-12 controls">
-                                      <button id="btn-login" class="btn btn-success">Login </button>
-                                      <div id="load" class="alert alert-info">
-                                          
-                                      </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-
-                                </div>    
-                            </div>     
-
-
-
-                        </div>                     
-                    </div>  
-        </div>
-        <div id="signupbox" style="display:none; margin-top:50px" class="col-md-12">
-  
-
-               
-               
-                
-         </div>               <!-- Remind Passowrd -->
-              <div id="formFooter">
-                <a class="underlineHover"  onclick="$('#loginbox').show();$('#formFooter').hide()">Đăng nhập</a>
-              </div>
-
-
-          
             </div>
-          </div>
+
+        </div>
+
+    </div>
+</div>
               <script>
         
                         $(document).ready(function(){
                             $("#load").hide();
-                    $('#btn-login').on('click',function(){  
+                    $('#btn-login').on('click',function(e){  
+                      e.preventDefault();
+                      if($('#login-username').val() == '' || $('#login-password').val() == ''){
+                        $.notify({
+                              icon: 'pe-7s-gift',
+                             message: "<b>Username</b> or <b>Password</b> is empty!"
+
+                            },{
+                                type: 'info',
+                                timer: 4000
+                            });
+                      }else{
+
                     $("#load").html('<img src="https://www.drupal.org/files/issues/throbber_13.gif" width="30" height="30" /> Đang Lấy Thông Tin đăng nhập...').fadeIn("slow");
                           var data = {
                                 username : $('#login-username').val(),
                                 password : $('#login-password').val(),
                                 key : 'login'
-
                             };
                             console.log(data);
                          $.ajax({
-                            url : '/index.php',
+                            url : <?php PostRoute(); ?>,
                             type : 'POST',
                             data : data,      
                         success : function (result){
                             console.log(result);
                             var delayInMilliseconds = 2000; //1 second
-
                             setTimeout(function() {
                                 $("#load").hide();
                                 if(result == false){
-                                    $("#load").html('<div class="alert alert-danger" role="alert">Sai tài khoản hoặc mật khẩu</div>');
+                                    $.notify({
+                                  icon: 'pe-7s-gift',
+                                  message: "This account is Invalid!"
+
+                                  },{
+                                type: 'danger',
+                                timer: 4000
+                            });
                                 }else{
                                     setTimeout(function() {
-                                        eval('window.location.href = "index.php?route=admin"');
+                                        eval('window.location.href = "admin.html"');
                                     },delayInMilliseconds);
                                 }
                                 
                             }, delayInMilliseconds);
                                 
-
                                 
                             
                             }
                         });
-
+                      }
+                      
                     });
                    
                 });
     </script>
-            
-        
-        
-        
-  <script src="src/admin/element/vendors/js/vendors.min.js"></script>
-    <script src="src/admin/element/js/core/app-menu.js"></script>
-    <script src="src/admin/element/js/core/app.js"></script>
-    <script src="src/admin/element/js/scripts/customizer.js"></script>
-    <script src="src/admin/element/js/scripts/documentation.js" type="text/javascript"></script>
-    <script src="src/admin/element/vendors/js/ui/affix.js" type="text/javascript"></script>
-    <script src="src/admin/element/js/config.js"></script>    <footer class="footer footer-static footer-light navbar-border">
-        <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright &copy; 2019 <a class="text-bold-800 grey darken-2" href="https://www.facebook.com/zake.death" target="_blank">DOMINIX </a>, All rights reserved. </span><span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">Hand-crafted & Made with <i class="icon-heart5 pink"></i></span></p>
-    </footer>
 
-
-
-    
 </body>
+<?php require_once(__DIR__.'/element/script.php'); ?>
+
 
 </html>

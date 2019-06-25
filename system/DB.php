@@ -67,17 +67,17 @@ create TABLE banner(
 create TABLE findmaster(
 	m_id int PRIMARY KEY AUTO_INCREMENT,
 	fullname varchar(50) not null,
-	address text not null,
+	address text,
 	phone varchar(15) not null,
 	email varchar(50) not null,
-	Stclass varchar(10) not null,
-	school varchar(40) not null,
-	sex varchar(3) not null,
-	learning varchar(10) not null,
-	subject text not null,
-	count int not null,
-	purpose varchar(20) not null,
-	ask text not null,
+	stclass varchar(10),
+	school varchar(40),
+	sex varchar(3),
+	learning varchar(10),
+	subject text,
+	sl varchar(3),
+	purpose varchar(20),
+	ask text,
 	created_at text not null
 );
 create TABLE userlogin(

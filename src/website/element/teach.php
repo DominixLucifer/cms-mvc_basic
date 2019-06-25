@@ -14,7 +14,7 @@
                                         <?php for($i=0;$i<$total2;$i++){ ?>
                                         <div class="item tea-item  wow slideInDown">
                                             <a href="#" class="imagez">
-                                                <img src="src/website/element/images/<?php echo $dataTeach[$i]->avatar; ?>" class="img-responsive img-zoom" alt="Nguyễn Thị Huyền - Gia sư Hóa chất lượng cao tại Hà nội">
+                                                <img src="<?php echo asset('home','images'); ?><?php echo $dataTeach[$i]->avatar; ?>" class="img-responsive img-zoom" >
                                             </a>
                                             <div class="text">
                                                 <a  class="h4 hover-mo">

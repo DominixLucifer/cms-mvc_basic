@@ -161,7 +161,14 @@ $total2 = count((array)$dataTeach);
                 $(document).ready(function(){
                     $('#submit').on('click',function(){
                         if($('#W3NF_9819_c21').val() == '' || $('#W3NF_9824_c343').val() == '' || $('#W3NF_9820_c143').val() == '' || $('#W3NF_9823_c281').val() == '' || $('#W3NF_9821_c225').val() == ''){
-                            alert('Vui lòng nhập đầy đủ thông tin ở form !')
+                            $.notify({
+                                  icon: 'pe-7s-gift',
+                                  message: "Vui lòng nhập đầy đủ thông tin ở form"
+
+                                  },{
+                                type: 'danger',
+                                timer: 4000
+                            });
                         }else{
                          $.ajax({
                             url : '/index.php',
@@ -179,10 +186,25 @@ $total2 = count((array)$dataTeach);
                         success : function (result){
                             console.log(result);
                             if(result == 1){
+                                $.notify({
+                                  icon: 'pe-7s-gift',
+                                  message: "Yêu cầu của bạn đang được gửi đi"
+
+                                  },{
+                                type: 'success',
+                                timer: 4000
+                            });
                                 $('form').hide();
                                 $('#result').html('Yêu cầu của bạn đang được gửi đi và đang xử lí').fadeIn("slow");
                             }else{
-                                alert('Lỗi không xác định! ');
+                                $.notify({
+                                  icon: 'pe-7s-gift',
+                                  message: "Lỗi không xác định"
+
+                                  },{
+                                type: 'danger',
+                                timer: 4000
+                            });
                             }
                             
                         }

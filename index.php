@@ -4,8 +4,8 @@ require __DIR__ . '/vendor/autoload.php';
 use minapp\Route;
 
 session_start();
+require __DIR__ . '/config.php';
 
-$config = ['root'=> __DIR__];
 
 if(isset($_GET['route'])){
 	$url = $_GET['route'];
@@ -16,11 +16,12 @@ if(isset($_GET['route'])){
 }else 
 if(isset($_POST) && isset($_POST['key'])){
 	$route = new Route('/','POST');
-	if(isset($_FILES)){
+	if(!empty($_FILES)){
 		echo $route->postController($_POST,$_POST['key'],$_FILES);
-		// var_dump($_FILES);
+		// var_dump($_POST);
 	}else{
 		echo $route->postController($_POST,$_POST['key'],'');
+		// var_dump($_POST);
 	}
 	
 	// var_dump($_POST);

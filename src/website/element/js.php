@@ -85,16 +85,17 @@
 </script>
 
 <!-- <div id="loading"></div> -->
-<script type="text/javascript" src="src/website/element/js/jquery.sliderPro.min.js"></script>
-<script type="text/javascript" src="src/website/element/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="src/website/element/js/owl.carousel.js"></script>
-<script type="text/javascript" src="src/website/element/js/wow.min.js"></script>
+<script type="text/javascript" src="<?php echo asset('home','jquery.sliderPro.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo asset('home','bootstrap.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo asset('home','owl.carousel.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo asset('home','wow.min.js'); ?>"></script>
 <script>
     new WOW().init();
     $(document).ready(function () {
     })
 </script>
 
-<script type="text/javascript" src="src/website/element/js/main.js"></script>
+<script type="text/javascript" src="<?php echo asset('home','main.js'); ?>"></script>
 
-<script type="text/javascript" src="src/website/element/js/web3nhat.min.js"></script>
+<script type="text/javascript" src="<?php echo asset('home','web3nhat.min.js'); ?>"></script>
+<script src="<?php echo asset('admin','bootstrap-notify.js'); ?>"></script>

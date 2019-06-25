@@ -47,7 +47,7 @@ $total2 = count((array)$dataTeach);
                         .dmca {
                             margin-top: 20px;
                         }
-                    </style><img src="src/website/element/images/thong-ke.jpg" width="0" height="0" style="width: 0; height: 0; display: none;" rel="nofollow" alt="Thong ke" />
+                    </style><img src="<?php echo asset('home','images'); ?>thong-ke.jpg" width="0" height="0" style="width: 0; height: 0; display: none;" rel="nofollow" alt="Thong ke" />
                     <div id="row-1" class="row-1 wow slideInUp animated">
                         <div class="container">
                             <div class="title wow bounce animated">
@@ -156,38 +156,46 @@ $total2 = count((array)$dataTeach);
                                 address : ' ',
                                 phone : $('#W3NF_9831_c83').val(),
                                 email : $('#W3NF_9830_c52').val(),
-                                Stclass : ' ',
-                                school : ' ',
-                                sex : ' ',
-                                learning : ' ',
-                                tieuhoc : ' ',
-                                toan : ' ',
-                                tiengviet : ' ',
-                                toeic : ' ',
-                                vatly : ' ',
-                                tienganh : ' ',
-                                laptrinh : ' ',
-                                monkhac :' ',
-                                count : ' ',
-                                purpose :' ',
+                                stclass : 'unknow',
+                                school : 'unknow',
+                                sex : 'unk',
+                                learning : 'unknow',
+                                tieuhoc : 'unknow',
+                                toan : 'unknow',
+                                tiengviet : 'unknow',
+                                toeic : 'unknow',
+                                vatly : 'unknow',
+                                tienganh : 'unknow',
+                                laptrinh : 'unknow',
+                                monkhac :'unknow',
+                                sl : '0',
+                                purpose :'Chưa nhập thông tin',
                                 ask : $('#W3NF_9991_c193').val(),
                                 key : 'submit-timgiasu'
 
                             };
                             console.log(data);
                          $.ajax({
-                            url : '/index.php',
+                            url : <?php PostRoute(); ?>,
                             type : 'POST',
                             data : data, 
                             contentType: "application/x-www-form-urlencoded;charset=utf-8",     
                         success : function (result){
                             console.log(result);
-                            // if(result == 1){
-                            //     $('form').fadeIn("slow").hide();
-                            //     $('#result').html('Yêu cầu của bạn đang được gửi đi và đang xử lí').fadeIn("slow");
-                            // }else{
-                            //     alert('Lỗi không xác định! ');
-                            // }
+                            if(result == 1){
+                                $.notify({
+                                  icon: 'pe-7s-gift',
+                                  message: "Yêu cầu của bạn đang được gửi đi"
+
+                                  },{
+                                type: 'info',
+                                timer: 4000
+                            });
+                                $('form').fadeIn("slow").hide();
+                                $('#result').html('Yêu cầu của bạn đang được gửi đi và đang xử lí').fadeIn("slow");
+                            }else{
+                                alert('Lỗi không xác định! ');
+                            }
                             
                         }
                         });

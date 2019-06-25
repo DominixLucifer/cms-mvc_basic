@@ -34,7 +34,6 @@ class siteModel
     }
 
     function insert($data){
-        $data = (array) $data;
  
     $field_list = '';
     $value_list = '';

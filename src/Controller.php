@@ -129,11 +129,15 @@ class Controller
         array_splice($data, 8, 8);
         unset($data['key']);
         $data['created_at'] = $date['year'].'-'.$date['mon'].'-'.$date['mday'].' | '.$date['hours'].':'.$date['minutes'].':'.$date['seconds'];
-        $data = (object) $data;
         $actor = new siteModel($table);
         $result = $actor->insert($data);
+        if($result){
+            return 1;
+        }else{
+            return 0;
+        }
 
-        return json_encode($data);
+        
     }
 
     }
@@ -145,7 +149,6 @@ class Controller
         }else{
             unset($data['key']);
             $data['created_at'] = $date['year'].'-'.$date['mon'].'-'.$date['mday'].' | '.$date['hours'].':'.$date['minutes'].':'.$date['seconds'];
-            $data = (object) $data;
             $actor = new siteModel($table);
             $result = $actor->insert($data);
 

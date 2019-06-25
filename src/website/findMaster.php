@@ -330,10 +330,17 @@ $total2 = count((array)$dataTeach);
                 $(document).ready(function(){
                     $('#submiter').on('click',function(){
                         if($('#W3NF_10062_c22').val() == '' || $('#W3NF_10063_c53').val() == '' || $('#W3NF_10064_c84').val() == '' || $('#W3NF_10065_c115').val() == ''){
-                            alert('Vui lòng nhập thông tin yêu cầu !');
+                            $.notify({
+                                  icon: 'pe-7s-gift',
+                                  message: "Vui lòng nhập đầy đủ thông tin"
+
+                                  },{
+                                type: 'danger',
+                                timer: 4000
+                            });
                         }else{
                          $.ajax({
-                            url : '/index.php',
+                            url : <?php PostRoute(); ?>,
                             type : 'POST',
                             data : {
                                 fullname : $('#W3NF_10062_c22').val(),
@@ -352,7 +359,7 @@ $total2 = count((array)$dataTeach);
                                 tienganh : $('#tienganh').val(),
                                 laptrinh : $('#laptrinh').val(),
                                 monkhac : $('#monkhac').val(),
-                                count : $('#W3NF_10076_c4112').val(),
+                                sl : $('#W3NF_10076_c4112').val(),
                                 purpose : $('#purpose').val(),
                                 ask : $('#W3NF_10078_c4714').val(),
                                 key : 'submit-timgiasu'
@@ -361,10 +368,25 @@ $total2 = count((array)$dataTeach);
                         success : function (result){
                             console.log(result);
                             if(result == 1){
+                                $.notify({
+                                  icon: 'pe-7s-gift',
+                                  message: "Yêu cầu của bạn đang được gửi đi"
+
+                                  },{
+                                type: 'success',
+                                timer: 4000
+                            });
                                 $('#w3n-submit-form').hide();
                                 $('#result').html('Yêu cầu của bạn đang được gửi đi và đang xử lí')
                             }else{
-                                alert('Lỗi không xác định! ');
+                                $.notify({
+                                  icon: 'pe-7s-gift',
+                                  message: "Lỗi không xác định"
+
+                                  },{
+                                type: 'danger',
+                                timer: 4000
+                            });
                             }
                             
                         }
