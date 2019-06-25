@@ -15,7 +15,7 @@
 - Chạy tất cả các lệnh bash ở trên trừ lệnh xóa bảng.
 - Lệnh ```php minapp database *``` có tác dụng tự khởi tạo database và dữ liệu.
 - Đẩy source code lên hosting sau đó chỉnh lại thông tin database file env.json khớp với thông tin hosting database.
-- Import file database tại local đã tạo vào database hosting
+- Import file database tại local đã tạo vào database hosting hoặc dùng chính terminal chạy bash trong hosting để thực hiện import database
 ## Tùy chỉnh ```minapp``` :
 - Ta có thể import nhiều class khác vào ứng dụng CLI PHP để run bằng cách thêm ```$application->add(new example());``` ví dụ với class example
 - Viết class chạy CLI PHP vui lòng kham khảo tài liệu [Symfony](https://symfony.com/doc/current/console.html)
@@ -25,4 +25,4 @@
 ## Sử dụng
 - Admin panel: ```https://domain/index.php?route=admin``` or ```https://domain/admin.html``` (đã bật mod_rewrite)
 
-#### Nếu có lỗi vui lòng inbox cho tôi tại email ```bvminh101299@gmail.com``` hoặc phản hồi qua facebook [Văn Min](https://www.facebook.com/zake.death)
+#### Nếu có bug vui lòng inbox cho tôi tại email ```bvminh101299@gmail.com``` hoặc phản hồi qua facebook [Văn Min](https://www.facebook.com/zake.death) [likedin](https://www.linkedin.com/in/minh-bui-567486148/)
