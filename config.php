@@ -1,11 +1,40 @@
 <?php 
+
+//Configuring environment variables
 $config = [
 	'source'=> 'src/',
 	'route_root'=>'/index.php',
+	'root_admin'=>'/index.php?route=admin',
+
 ];
+
+function panel_name(){
+	echo base64_decode('TVQgc29jaWFs');
+}
+
+/*
+If you're using mod_php, you can use apache_get_modules(). 
+This will return an array of all enabled modules, so to check if mod_rewrite is enabled
+*/
+function check_mod_rewrite(){
+ if(in_array('mod_rewrite',apache_get_modules())){
+ 	$res = true;
+ }else{
+ 	$res = false;
+ }  
+ 	return $res;
+}
+
 $path = $config['source'];
 $RouteRoot = $config['route_root'];
 
+// if(check_mod_rewrite())? $admin_route = 'admin.html' : $admin_route = $config['root_admin'];
+
+function admin_route(){
+	echo "".$admin_route;
+}
+
+//The function returns the path or file path
 function asset($name,$file){
 	$exp = explode('.', $file);
 

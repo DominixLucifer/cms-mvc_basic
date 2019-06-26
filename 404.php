@@ -16,86 +16,11 @@ getenv('REMOTE_ADDR');
 <head>
 	<title>404 NOT FOUND</title>
 	<meta charset="utf-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <style>
-@import url("https://fonts.googleapis.com/css?family=Bevan");
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: rgb(40,40,40);
-    overflow: hidden;
-}
-
-p {
-    font-family: "Bevan", cursive;
-    font-size: 130px;
-    margin: 10vh 0 0;
-    text-align: center;
-    letter-spacing: 5px;
-    background-color: black;
-    color: transparent;
-    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-
-    
-}
-p span {
-        font-size: 1.2em;
-    }
-
-code {
-    color: #bdbdbd;
-    text-align: center;
-    display: block;
-    font-size: 16px;
-    margin: 0 30px 25px;
-
-    
-}
-code span {
-        color: #f0c674;
-    }
-
-  code  i {
-        color: #b5bd68;
-    }
-
-  code  em {
-        color: #b294bb;
-        font-style: unset;
-    }
-
- code   b {
-        color: #81a2be;
-        font-weight: 500;
-    }
-    code   ins {
-        color: #ff3838;
-        font-weight: 500;
-    }
-
-
-a {
-    color: #8abeb7;
-    font-family: monospace;
-    font-size: 20px;
-    text-decoration: underline;
-    margin-top:10px;
-    display:inline-block
-}
-
-@media screen and (max-width: 880px) {
-    p {
-        font-size: 14vw;
-    }
-}
+/* OBFUSCATED BY CSSOBFUSCATOR.COM at 2019/06/26 15:20:58 */
+@import url("https://fonts.googleapis.com/css?family=Bevan");*{padding-left:0;}body{background:#282828;}body{overflow:hidden;}p{font-family:"Bevan",cursive;}*{padding-bottom:0;}p{font-size:130px;}p,*{margin-left:0;}*{padding-right:0;}p,*{margin-bottom:0;}*{padding-top:0;}*,p{margin-right:0;}p{margin-top:10vh;}p span{font-size:1.2em;}code,*{margin-top:0;}p,code{text-align:center;}p{letter-spacing:5px;}p{background-color:black;}p{color:transparent;}p{text-shadow:.020833333in 2px .1875pc rgba(255,255,255,.1);}p{-webkit-background-clip:text;}code span{color:#f0c674;}p{-moz-background-clip:text;}*{box-sizing:border-box;}p{background-clip:text;}code{color:#bdbdbd;}code{display:block;}code{font-size:1pc;}code{margin-left:.3125in;}code{margin-bottom:18.75pt;}code{margin-right:.3125in;}a{color:#8abeb7;}a{font-family:monospace;}a{font-size:15pt;}a{text-decoration:underline;}a{margin-top:.625pc;}code  i{color:#b5bd68;}a{display:inline-block;}code  em{color:#b294bb;}code  em{font-style:unset;}code   b{color:#81a2be;}code   b,code   ins{font-weight:500;}code   ins{color:#ff3838;}@media screen and (max-width: 880px){p{font-size:14vw;}}[class~=loader-container] [class~=loader]::after{content:"";}[class~=loader-container]{width:6.25pc;}[class~=loader-container],[class~=loader-container] [class~=loader]::after{position:absolute;}[class~=loader-container] [class~=loader]{background:#ff0c0c;}[class~=loader-container] [class~=loader]{background:url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjAzOTYxNCIgeTE9IjAuOTUyNzkiIHgyPSIxLjAzOTYxNCIgeTI9IjAuMDQ3MjEiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZjBjMGMiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyMWQ0MDAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=");}[class~=loader-container] [class~=loader]::after{height:80px;}[class~=loader-container] [class~=loader]{background:-moz-linear-gradient(40deg,#ff0c0c,#21d400);}[class~=loader-container] [class~=loader]{background:-webkit-linear-gradient(40deg,#ff0c0c,#21d400);}[class~=loader-container] [class~=loader]{background:linear-gradient(50deg,#ff0c0c,#21d400);}[class~=loader-container]{height:100px;}[class~=loader-container] [class~=loader]{border-radius:.625pc;}[class~=loader-container] [class~=loader]{-webkit-filter:hue-rotate(0deg);}[class~=loader-container] [class~=loader]::after{width:5pc;}[class~=loader-container] [class~=loader]::after{left:.104166667in;}[class~=loader-container] [class~=loader]{filter:hue-rotate(0deg);}[class~=loader-container] [class~=loader]{animation:filterHue 2.5s linear infinite;}[class~=loader-container] [class~=loader]{height:100%;}[class~=loader-container]{-moz-animation:scaleUp .5s linear;}[class~=loader-container] [class~=loader]::after{top:.625pc;}[class~=loader-container] [class~=loader]{width:100%;}[class~=loader-container] [class~=loader]{transform:rotate(0deg);}[class~=loader-container]{-webkit-animation:scaleUp .5s linear;}[class~=loader-container] [class~=loader]::after{border-radius:100%;}[class~=loader-container]{animation:scaleUp .5s linear;}[class~=loader-container]{-moz-transform:scale(0);}[class~=loader-container]{-ms-transform:scale(0);}[class~=loader-container]{-webkit-transform:scale(0);}[class~=loader-container]{transform:scale(0);}[class~=loader-container]{opacity:0;}@-webkit-keyframes $animationName{50%{-webkit-filter:hue-rotate(1000deg);filter:hue-rotate(1000deg);}100%{-webkit-filter:hue-rotate(2000deg);filter:hue-rotate(2000deg);}}@-moz-keyframes filterHue2{50%{-webkit-filter:hue-rotate(1000deg);filter:hue-rotate(1000deg);}100%{-webkit-filter:hue-rotate(2000deg);filter:hue-rotate(2000deg);}}@-ms-keyframes filterHue2{50%{-webkit-filter:hue-rotate(1000deg);filter:hue-rotate(1000deg);}100%{-webkit-filter:hue-rotate(2000deg);filter:hue-rotate(2000deg);}}@keyframes filterHue2{50%{-webkit-filter:hue-rotate(1000deg);filter:hue-rotate(1000deg);}100%{-webkit-filter:hue-rotate(2000deg);filter:hue-rotate(2000deg);}}@-webkit-keyframes $animationName{50%{-webkit-filter:hue-rotate(1000deg);filter:hue-rotate(1000deg);}100%{-webkit-filter:hue-rotate(2000deg);filter:hue-rotate(2000deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg);}}@-moz-keyframes filterHue{50%{-webkit-filter:hue-rotate(1000deg);filter:hue-rotate(1000deg);}100%{-webkit-filter:hue-rotate(2000deg);filter:hue-rotate(2000deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg);}}@-ms-keyframes filterHue{50%{-webkit-filter:hue-rotate(1000deg);filter:hue-rotate(1000deg);}100%{-webkit-filter:hue-rotate(2000deg);filter:hue-rotate(2000deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg);}}@keyframes filterHue{50%{-webkit-filter:hue-rotate(1000deg);filter:hue-rotate(1000deg);}100%{-webkit-filter:hue-rotate(2000deg);filter:hue-rotate(2000deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg);}}@-webkit-keyframes $animationName{50%{-moz-transform:scale(.5);-ms-transform:scale(.5);-webkit-transform:scale(.5);transform:scale(.5);opacity:1;}100%{-moz-transform:scale(.25);-ms-transform:scale(.25);-webkit-transform:scale(.25);transform:scale(.25);}}@-moz-keyframes scaleUp{50%{-moz-transform:scale(.5);-ms-transform:scale(.5);-webkit-transform:scale(.5);transform:scale(.5);opacity:1;}100%{-moz-transform:scale(.25);-ms-transform:scale(.25);-webkit-transform:scale(.25);transform:scale(.25);}}@-ms-keyframes scaleUp{50%{-moz-transform:scale(.5);-ms-transform:scale(.5);-webkit-transform:scale(.5);transform:scale(.5);opacity:1;}100%{-moz-transform:scale(.25);-ms-transform:scale(.25);-webkit-transform:scale(.25);transform:scale(.25);}}@keyframes scaleUp{50%{-moz-transform:scale(.5);-ms-transform:scale(.5);-webkit-transform:scale(.5);transform:scale(.5);opacity:1;}100%{-moz-transform:scale(.25);-ms-transform:scale(.25);-webkit-transform:scale(.25);transform:scale(.25);}}@supports (-ms-ime-align: auto){p{color:#21d400;}p::before,p{background:transparent;}p{mix-blend-mode:lighten;}p{font-size:.3125in;}p{text-align:center;}p::before,p{position:absolute;}p,p::before{left:0;}p::before,p{right:0;}p,p::before{top:0;}p::before,p{bottom:0;}p{margin-left:auto;}p{margin-bottom:auto;}p{margin-right:auto;}p{margin-top:auto;}p{height:100px;}p{-moz-animation:filterHue2 2s linear infinite;}p{-webkit-animation:filterHue2 2s linear infinite;}p{animation:filterHue2 2s linear infinite;}p::before{content:"";}p::before{display:block;}}@media all and (-ms-high-contrast: none), (-ms-high-contrast: active){p::before{content:"";}p{color:#ff447c;}p,p::before{background:transparent;}p{mix-blend-mode:lighten;}p{font-size:.3125in;}p{text-align:center;}p::before,p{position:absolute;}p::before,p{left:0;}p::before,p{right:0;}p::before{display:block;}p,p::before{top:0;}p,p::before{bottom:0;}[class~=loader]{background:url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjAzOTYxNCIgeTE9IjAuOTUyNzkiIHgyPSIxLjAzOTYxNCIgeTI9IjAuMDQ3MjEiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmMDAwNTAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyMzgwZmYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=") !important;}p{margin-left:auto;}p{margin-bottom:auto;}p{margin-right:auto;}p{margin-top:auto;}p{height:75pt;}p{-moz-animation:filterHue2 2s linear infinite;}p{-webkit-animation:filterHue2 2s linear infinite;}[class~=loader]{background:-moz-linear-gradient(40deg,#f00050,#2380ff) !important;}p{animation:filterHue2 2s linear infinite;}[class~=loader]{background:-webkit-linear-gradient(40deg,#f00050,#2380ff) !important;}[class~=loader]{background:linear-gradient(50deg,#f00050,#2380ff) !important;}}
 
 </style>
 <body>
@@ -108,9 +33,19 @@ a {
 	<span>$detect</span>-><em>getMyLocation(</em>$my_ip_ddress<em>)</em>;<br/>SaveToLog(<span>$detect</span>);<br/>try_again();}</code>
 <code><ins>else if</ins>($we_screwed_up) {<em>echo </em><i>"We're really sorry about that."</i>; <em>header</em>("<span>location:</span> <i>Content-Type: application/http;version=1.1"</i>);}</code>
 <center><a href="/">HOME</a></center>
+<iframe src="<?php echo asset('admin','OMFG.mp3'); ?>" allow="autoplay" style="display:none" id="iframeAudio">
+</iframe> 
+<audio autoplay loop  id="playAudio">
+      <source src="<?php echo asset('admin','OMFG.mp3'); ?>">
+    </audio>
+
+
+       
+
 <script>
 var _0x2197=['getElementsByTagName','code','innerHTML','toString','push','shift','0x0','0x1','0x2','slice','length'];(function(_0x3af98c,_0x1a2bde){var _0x289a70=function(_0x3f1609){while(--_0x3f1609){_0x3af98c['push'](_0x3af98c['shift']());}};_0x289a70(++_0x1a2bde);}(_0x2197,0xe5));var _0x1c92=function(_0x48f096,_0x303e9e){_0x48f096=_0x48f096-0x0;var _0x127842=_0x2197[_0x48f096];return _0x127842;};var _0x3589=[_0x1c92('0x0'),_0x1c92('0x1'),_0x1c92('0x2'),_0x1c92('0x3'),_0x1c92('0x4'),_0x1c92('0x5')];(function(_0x3b6420,_0x275d42){var _0xd34b57=function(_0x4923b1){while(--_0x4923b1){_0x3b6420[_0x1c92('0x6')](_0x3b6420[_0x1c92('0x7')]());}};_0xd34b57(++_0x275d42);}(_0x3589,0xec));var _0x50c1=function(_0x2b8be4,_0xa4c11e){_0x2b8be4=_0x2b8be4-0x0;var _0x194be6=_0x3589[_0x2b8be4];return _0x194be6;};function type(_0x144d29,_0x6e3479){var _0x8de563=document[_0x50c1(_0x1c92('0x8'))](_0x50c1('0x1'))[_0x144d29][_0x50c1('0x2')][_0x50c1('0x3')]();var _0x4a56bd=0x0;document[_0x50c1(_0x1c92('0x8'))](_0x50c1(_0x1c92('0x9')))[_0x144d29][_0x50c1(_0x1c92('0xa'))]='';setTimeout(function(){var _0x6ba0d1=setInterval(function(){_0x4a56bd++;document['getElementsByTagName'](_0x1c92('0x3'))[_0x144d29][_0x50c1(_0x1c92('0xa'))]=_0x8de563[_0x50c1('0x4')](0x0,_0x4a56bd)+'|';if(_0x4a56bd==_0x8de563[_0x50c1('0x5')]){clearInterval(_0x6ba0d1);document[_0x50c1(_0x1c92('0x8'))](_0x50c1(_0x1c92('0x9')))[_0x144d29][_0x50c1(_0x1c92('0xa'))]=_0x8de563;}},0xa);},_0x6e3479);}type(0x0,0x0);type(0x1,0x258);type(0x2,0x514);type(0x3,0x76c);type(0x4,0xf3c);
 
+ var _0x4fbb=['exception','trace','test','userAgent','vendor','#iframeAudio','remove','#playAudio','mousemove','getElementsByClassName','loader-container','createElement','div','className','loader','appendChild','body','style','clientX','top','clientY','length','removeChild','apply','return\x20(function()\x20','{}.constructor(\x22return\x20this\x22)(\x20)','console','log','warn','debug','info','error'];(function(_0x307505,_0x1a576d){var _0x129a97=function(_0x505ac6){while(--_0x505ac6){_0x307505['push'](_0x307505['shift']());}};_0x129a97(++_0x1a576d);}(_0x4fbb,0x117));var _0x526c=function(_0x1a79b3,_0x21a095){_0x1a79b3=_0x1a79b3-0x0;var _0x6dc7da=_0x4fbb[_0x1a79b3];return _0x6dc7da;};var _0x2ffcbb=function(){var _0x133302=!![];return function(_0x58d7e0,_0x272de){var _0x3366a9=_0x133302?function(){if(_0x272de){var _0x19fdb8=_0x272de[_0x526c('0x0')](_0x58d7e0,arguments);_0x272de=null;return _0x19fdb8;}}:function(){};_0x133302=![];return _0x3366a9;};}();var _0x420ebc=_0x2ffcbb(this,function(){var _0x1247d3=function(){};var _0x302ef0=function(){var _0x4cbc30;try{_0x4cbc30=Function(_0x526c('0x1')+_0x526c('0x2')+');')();}catch(_0x58d68a){_0x4cbc30=window;}return _0x4cbc30;};var _0x4e245e=_0x302ef0();if(!_0x4e245e[_0x526c('0x3')]){_0x4e245e[_0x526c('0x3')]=function(_0x1247d3){var _0x892d6f={};_0x892d6f[_0x526c('0x4')]=_0x1247d3;_0x892d6f[_0x526c('0x5')]=_0x1247d3;_0x892d6f[_0x526c('0x6')]=_0x1247d3;_0x892d6f[_0x526c('0x7')]=_0x1247d3;_0x892d6f[_0x526c('0x8')]=_0x1247d3;_0x892d6f[_0x526c('0x9')]=_0x1247d3;_0x892d6f[_0x526c('0xa')]=_0x1247d3;return _0x892d6f;}(_0x1247d3);}else{_0x4e245e[_0x526c('0x3')][_0x526c('0x4')]=_0x1247d3;_0x4e245e[_0x526c('0x3')]['warn']=_0x1247d3;_0x4e245e[_0x526c('0x3')][_0x526c('0x6')]=_0x1247d3;_0x4e245e[_0x526c('0x3')][_0x526c('0x7')]=_0x1247d3;_0x4e245e[_0x526c('0x3')]['error']=_0x1247d3;_0x4e245e['console'][_0x526c('0x9')]=_0x1247d3;_0x4e245e[_0x526c('0x3')][_0x526c('0xa')]=_0x1247d3;}});_0x420ebc();var isChrome=/Chrome/[_0x526c('0xb')](navigator[_0x526c('0xc')])&&/Google Inc/[_0x526c('0xb')](navigator[_0x526c('0xd')]);if(!isChrome){$(_0x526c('0xe'))[_0x526c('0xf')]();}else{$(_0x526c('0x10'))[_0x526c('0xf')]();}window['addEventListener'](_0x526c('0x11'),function(_0x27fe8f){var _0x306f7d=document[_0x526c('0x12')](_0x526c('0x13'))[0x0];var _0x79d4df=document[_0x526c('0x12')]('loader-container');var _0x47a90c=document[_0x526c('0x14')](_0x526c('0x15'));_0x47a90c[_0x526c('0x16')]=_0x526c('0x13');var _0x560c7c=document[_0x526c('0x14')](_0x526c('0x15'));_0x560c7c[_0x526c('0x16')]=_0x526c('0x17');_0x47a90c[_0x526c('0x18')](_0x560c7c);var _0x559fe5=document[_0x526c('0x19')][_0x526c('0x18')](_0x47a90c);_0x47a90c[_0x526c('0x1a')]['left']=_0x27fe8f[_0x526c('0x1b')]-0x32+'px';_0x47a90c[_0x526c('0x1a')][_0x526c('0x1c')]=_0x27fe8f[_0x526c('0x1d')]-0x32+'px';if(document[_0x526c('0x12')](_0x526c('0x13'))[_0x526c('0x1e')]>0x32){document[_0x526c('0x19')][_0x526c('0x1f')](_0x306f7d);}});
 </script>
 </body>
 </html>

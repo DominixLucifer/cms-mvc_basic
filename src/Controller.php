@@ -305,43 +305,78 @@ class Controller
         }
     }
 
+    public function postImage($data,$table){
+        if(isset($_SESSION['user'])){
+            $ins = [];
+            $date = getdate();
+            $date_time = $date['year'].'-'.$date['mon'].'-'.$date['mday'].' | '.$date['hours'].':'.$date['minutes'].':'.$date['seconds'];
+            $path_img = $this->imageUpload($data);
+            if($path_img){
+                $ins = [
+                    "url_img"=>$path_img,
+                    "created_at"=>$date_time
+                ];
+                $actor = new siteModel($table);
+                $result = $actor->insert($ins);
+                $sql = "select * from ".$table." where url_img='".$path_img."'";
+                $select = $actor->getRow($sql);
+
+
+                if($result){
+                    $user = new siteModel('userlogin');
+                    $av = [
+                        'image'=>$select->img_id,
+                    ];
+                    $where = "username='".$_SESSION['user']."'";
+                    $up = $user->update($av,$where);
+                    return 1;
+                }else{
+                    return 0;
+                }
+            
+            }else{
+                return 0;
+            }
+        }else{
+            return 0;
+        }
+
+    }
+
 
 
     //service
     private function imageUpload($data){
-        $target_dir = "src/website/element/images/";
-$target_file = $target_dir . basename($data["image"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if image file is a actual image or fake image
-
-    $check = getimagesize($data["image"]["tmp_name"]);
-    if($check !== false) {
-        $uploadOk = 1;
-    } else {
-        $uploadOk = 0;
-    }
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif" ) {
-        $uploadOk = 0;
+        $target_dir = __DIR__."/../src/asset/upload";
+        $uploadedFile ;
+if(!empty($data["files"]["type"])){
+        $fileName = 'mtsocial_'.time().'_'.$data['files']['name'][0];
+        $valid_extensions = array("jpeg", "jpg", "png");
+        $temporary = explode(".", $data["files"]["name"][0]);
+        $file_extension = end($temporary);
+        if((($data["files"]["type"][0] == "image/png") || ($data["files"]["type"][0] == "image/jpg") || ($data["files"]["type"][0] == "image/jpeg")) && ($file_extension == $valid_extensions[0] || $file_extension == $valid_extensions[1] || $file_extension == $valid_extensions[2])){
+            $sourcePath = $data['files']['tmp_name'][0];
+            $targetPath = $target_dir."/".$fileName;
+            if(move_uploaded_file($sourcePath,$targetPath)){
+                $uploadedFile = $targetPath;
+                return $uploadedFile;
+            }else{
+                return 0;
+            }
+        }else{
+            return 0;
         }
 
-
-
-    if ($uploadOk == 0) {
-        return false;
-// if everything is ok, try to upload file
-    } else {
-    if (move_uploaded_file($data["image"]["tmp_name"], $target_file)) {
-         return basename( $data["image"]["name"]);
-    } else {
-        return false;
+    }else{
+        return 0;
     }
+
+    // return $uploadedFile;
+
+
+
+
 }
-
-    }
-
-
 
 
 }

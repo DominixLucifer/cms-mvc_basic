@@ -96,6 +96,9 @@ class Route
             case 'delete-banner':
                 return $controller->postDelBanner($data,'banner');
                 break;
+            case 'upload-image':
+                return $controller->postImage($file,'image');
+                break;
 
     		default:
     			return 'error!';

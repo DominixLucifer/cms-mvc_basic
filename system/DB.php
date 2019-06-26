@@ -108,7 +108,13 @@ create TABLE teach(
 	description text not null,
 	avatar text not null,
 	created_at text not null
-);';
+);
+create TABLE image(
+	img_id int PRIMARY KEY AUTO_INCREMENT,
+	url_img text not null,
+	created_at text not null
+);
+';
 		mysqli_multi_query($this->__conn,$sql);
 	}
 

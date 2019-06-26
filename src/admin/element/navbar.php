@@ -9,8 +9,8 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                <a href="<?php admin_route(); ?>" class="simple-text">
+                    <?php panel_name(); ?>
                 </a>
             </div>
 
@@ -22,9 +22,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="user.html">
+                    <a href="admin-profile.html">
                         <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
+                        <p>Admin Profile</p>
                     </a>
                 </li>
                 <li>

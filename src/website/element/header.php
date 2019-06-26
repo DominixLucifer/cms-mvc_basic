@@ -23,7 +23,7 @@
                                             <h1 style="font-size: 0px;"> <?php echo $dataHome->name; ?>                            <a href="gioi-thieu.html"
                                title="<?php echo $dataHome->name; ?>" class=" wow fadeInDown"
                                data-wow-delay=".6s">
-                                <img src="src/website/element/images/<?php echo $dataHome->logoSite; ?>" alt="Về trang chủ"
+                                <img src="<?php echo asset('home','images'); ?><?php echo $dataHome->logoSite; ?>" alt="Về trang chủ"
                                      class="img-responsive">
                             </a>
                         </h1>

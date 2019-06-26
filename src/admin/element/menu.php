@@ -1,3 +1,17 @@
+<?php 
+
+use minapp\siteModel;
+$user = new siteModel('userlogin');
+$datauser = $user->getAll();
+$datauser = json_decode($datauser);
+$datauser = $datauser->data[0];
+
+// var_dump($datauser);
+
+
+
+ ?>
+
 <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -13,7 +27,7 @@
                     <ul class="nav navbar-nav navbar-left">
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-dashboard"></i>
+                                <i class="fab fa-dashboard"></i>
 								<p class="hidden-lg hidden-md">Dashboard</p>
                             </a>
                         </li>
@@ -44,22 +58,20 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                           <a href="">
-                               <p>Account</p>
-                            </a>
+                            <img src="" alt="Avatar" class="avatar"> 
                         </li>
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
-										Dropdown
+										<?php echo $datauser->username; ?>
 										<b class="caret"></b>
 									</p>
 
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
+                                <li><a href="admin-profile.html">Profile</a></li>
+                                <li><a href="#">Create user</a></li>
+                                <li><a href="#">permission user</a></li>
                                 <li><a href="#">Another action</a></li>
                                 <li><a href="#">Something</a></li>
                                 <li class="divider"></li>
@@ -67,7 +79,7 @@
                               </ul>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="logout.html">
                                 <p>Log out</p>
                             </a>
                         </li>
