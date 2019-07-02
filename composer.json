@@ -12,6 +12,7 @@
     "autoload": {
         "psr-4": {
         	"minapp\\": "src/",
+            "minapp\\service\\": "service/",
         	"minapp\\site\\": "src/website",
             "minapp\\backend\\": "src/admin",
         	"minapp\\lib\\": "src/lib",

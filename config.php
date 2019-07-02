@@ -68,6 +68,7 @@ function PostRoute(){
 	echo "'".$GLOBALS['RouteRoot']."'";
 }
 
+
 function get_client_ip() {
     $ipaddress = '';
     if (isset($_SERVER['HTTP_CLIENT_IP']))

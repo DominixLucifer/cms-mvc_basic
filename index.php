@@ -7,6 +7,8 @@ session_start();
 require __DIR__ . '/config.php';
 
 
+
+//require data
 if(isset($_GET['route'])){
 
 	$url = $_GET['route'];

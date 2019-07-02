@@ -82,7 +82,8 @@ create TABLE findmaster(
 );
 create TABLE userlogin(
 	u_id int PRIMARY KEY AUTO_INCREMENT,
-	fullname varchar(40) not null,
+	fullname varchar(60) not null,
+	phone varchar(13),
 	username varchar(40) not null,
 	email varchar(25) not null,
 	password text not null,
@@ -172,8 +173,8 @@ EM HẬN ANH NHƯNG EM YÊU ANH.","zakedeath_7481d50d4b14b94e3ce89ccd0b72739d.jp
 	}
 	function createUser($fullname,$username,$email,$password){
 				$password = password_hash($password, PASSWORD_BCRYPT);
-				$sql = 'INSERT INTO userlogin (fullname,username,email,password,permission,image)
-VALUES ("'.$fullname .'", "'.$username.'","'.$email.'","'.$password.'",1," ")';
+				$sql = 'INSERT INTO userlogin (fullname,username,email,password,permission,image,phone)
+VALUES ("'.$fullname .'", "'.$username.'","'.$email.'","'.$password.'",1," ","")';
 				$a = mysqli_query($this->__conn,$sql)? true : false;
 				return $sql;
 

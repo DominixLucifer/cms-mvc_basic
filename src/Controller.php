@@ -190,53 +190,30 @@ class Controller
             $where = 'username="'.$username.'"';
             $actor = new siteModel($table);
 
-             if(isset($data['image']) && $data['image'] != ''){
-                    $image = $this->imageUpload($data['image']);
-                }else{
-                    $image = false;
-                }
-
-            if(($data['password'] == $data['password_confirmation']) && $data['password'] != null){
+            if($data['password'] != null){
                 $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
 
-                
-                if($image == false){
-                    unset($data['image']);
                     unset($data['key']);
-                    unset($data['password_confirmation']);
                     $result = $actor->update($data,$where);
-                    return $result;
-                }else{
-                    unset($data['key']);
-                    unset($data['password_confirmation']);
-                    $result = $actor->update($data,$where);
-                    return $result;
-            }
+                    return 1;
+            
 
             }else{
 
-                 if($image == false){
-                    unset($data['image']);
-                    unset($data['key']);
-                    unset($data['password']);
-                    unset($data['password_confirmation']);
-                    $result = $actor->update($data,$where);
-                    return $result;
-                }else{
+
                 // $sql = 'UPDATE '.$table.' SET password="'.$data['password'].'", fullname="'..'" WHERE username="'.$_SESSION['user'].'"';
                 // mysqli_query()
                     unset($data['key']);
                     unset($data['password']);
-                     unset($data['password_confirmation']);
                     $result = $actor->update($data,$where);
-                    return $result;
-            }
+                    return 1;
+            
             }
             
             // $sql = 'UPDATE '.$table.' SET '
 
         }else{
-            return false;
+            return 0;
         }
         
 
@@ -347,7 +324,7 @@ class Controller
 
     //service
     private function imageUpload($data){
-        $target_dir = __DIR__."/../src/asset/upload";
+        $target_dir = "src/asset/upload";
         $uploadedFile ;
 if(!empty($data["files"]["type"])){
         $fileName = 'mtsocial_'.time().'_'.$data['files']['name'][0];

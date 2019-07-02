@@ -37,7 +37,7 @@ $style = 'background-image:    url('.asset('admin','images').'mainbg4.jpg);
               
 
       <div class="text-center">
-        <img id="myImg" src="https://www.w3schools.com/howto/img_snow.jpg" alt="Snow" class="avatar">
+        <img id="myImg" src="<?php echo $img; ?>" alt="Snow" class="avatar">
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -66,7 +66,7 @@ $style = 'background-image:    url('.asset('admin','images').'mainbg4.jpg);
             <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
             <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
           </div>
-          
+<!--           
           
           <ul class="list-group" style="color: black">
             <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
@@ -74,7 +74,7 @@ $style = 'background-image:    url('.asset('admin','images').'mainbg4.jpg);
             <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
-          </ul> 
+          </ul>  -->
                
           <div class="panel panel-default" style="color: black">
             <div class="panel-heading">Social Media</div>
@@ -91,19 +91,12 @@ $style = 'background-image:    url('.asset('admin','images').'mainbg4.jpg);
           <div class="tab-content">
             <div class="tab-pane active" id="home">
                 <hr>
-                  <form class="form" action="##" method="post" id="registrationForm">
+                  <form class="form" method="post" id="registrationForm">
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                              <label for="first_name"><h4>First name</h4></label>
-                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                            <label for="last_name"><h4>Last name</h4></label>
-                              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                              <label for="Full_name"><h4>Full name</h4></label>
+                              <input type="text" class="form-control" name="Full_name" id="Full_name" value="<?php echo $datauser->fullname; ?>" title="enter your first name if any.">
                           </div>
                       </div>
           
@@ -111,28 +104,21 @@ $style = 'background-image:    url('.asset('admin','images').'mainbg4.jpg);
                           
                           <div class="col-xs-6">
                               <label for="phone"><h4>Phone</h4></label>
-                              <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                          </div>
-                      </div>
-          
-                      <div class="form-group">
-                          <div class="col-xs-6">
-                             <label for="mobile"><h4>Mobile</h4></label>
-                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                              <input type="text" class="form-control" name="phone" id="phone" value="<?php echo $datauser->phone; ?>" title="enter your phone number if any.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                               <label for="email"><h4>Email</h4></label>
-                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                              <input type="email" class="form-control" name="email" id="email" value="<?php echo $datauser->email; ?>" title="enter your email.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                              <label for="email"><h4>Location</h4></label>
-                              <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                              <label for="email"><h4>Permission</h4></label>
+                              <span id="permission" class="form-control"><?php echo $permission; ?></span>
                           </div>
                       </div>
                       <div class="form-group">
@@ -152,8 +138,7 @@ $style = 'background-image:    url('.asset('admin','images').'mainbg4.jpg);
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                              	<button class="btn btn-lg btn-success" type="submit"><i class="fas fa-check"></i> Save</button>
-                               	<button class="btn btn-lg" type="reset"><i class="fas fa-sync-alt"></i> Reset</button>
+                              	<button class="btn btn-lg btn-success" id="save" type="submit"><i class="fas fa-check"></i> Save</button>
                             </div>
                       </div>
               	</form>
@@ -186,7 +171,122 @@ $style = 'background-image:    url('.asset('admin','images').'mainbg4.jpg);
     </div>
 </div>
 <script>
-	var modal = document.getElementById("myModal");
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+$('#save').on('click',function(e){
+  e.preventDefault();
+  var fullname = $('#Full_name').val();
+  var phone = $('#phone').val();
+  var password = $('#password').val();
+  var password2 = $('#password2').val();
+  if(validateEmail($('#email').val())){
+    var email = $('#email').val();
+     console.log(phone);
+  if(fullname != '' || phone != '' || email != '' || fullname != null || phone != null || email != null){
+    console.log('true');
+      if(password == '' && password2 == ''){
+        $.ajax({
+          url: <?php PostRoute(); ?>,
+          method: 'POST',
+          data: {
+            fullname: fullname,
+            phone: phone,
+            email: email,
+            password:'',
+            key: 'update-user',
+
+          },
+          success: function(resp){
+            if(resp == 1){
+                $.notify({
+                icon: '',
+                message: "Update profile successfully!"
+
+               },{
+                   type: 'success',
+                   timer: 2000
+               });
+                setTimeout(function() {
+                  eval('window.location.href = "admin-profile.html"');
+                },2000);
+            }else{
+              alert('Lỗi không xác định');
+            }
+          }
+        });
+      }else if(password == password2){
+         $.ajax({
+          url: <?php PostRoute(); ?>,
+          method: 'POST',
+          data: {
+            fullname: fullname,
+            phone: phone,
+            email: email,
+            password: password,
+            key: 'update-user',
+
+          },
+          success: function(resp){
+            if(resp == 1){
+                $.notify({
+                icon: '',
+                message: "Update profile successfully!"
+
+               },{
+                   type: 'success',
+                   timer: 1000
+               });
+                setTimeout(function() {
+                  eval('window.location.href = "admin-profile.html"');
+                },2000);
+            }else{
+              alert('Lỗi không xác định');
+            }
+          }
+        });
+      }else{
+        $.notify({
+                icon: '',
+                message: "password Verify false!"
+
+               },{
+                   type: 'danger',
+                   timer: 2000
+               });
+      }
+  }else{
+    console.log('false');
+     $.notify({
+                icon: '',
+                message: "Vui lòng kiểm tra các trường!"
+
+               },{
+                   type: 'danger',
+                   timer: 2000
+               });
+
+  }
+
+  }else{
+    $.notify({
+                icon: '',
+                message: "email không hợp lệ!"
+
+               },{
+                   type: 'danger',
+                   timer: 2000
+               });
+    var email = '';
+  }
+  
+  
+ 
+});
+
+
+var modal = document.getElementById("myModal");
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var img = document.getElementById("myImg");
@@ -198,16 +298,26 @@ img.onclick = function(){
   captionText.innerHTML = this.alt;
 }
 
-// Get the <span> element that closes the modal
+
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on <span> (x), close the modal
+
 span.onclick = function() {
   modal.style.display = "none";
 } 
 
 
 $(document).ready(function(){
+  $('#permission').on('click',function(){
+    $.notify({
+                icon: '',
+                message: "Không thể sửa quyền!"
+
+               },{
+                   type: 'danger',
+                   timer: 2000
+               });
+  });
 	$("#load").hide();
 	$('#imgUpload').on('change',function(){
 		 $("#load").html('<img src="https://www.drupal.org/files/issues/throbber_13.gif" width="30" height="30" /> Đang upload ảnh...').fadeIn("slow");

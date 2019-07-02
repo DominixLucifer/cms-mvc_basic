@@ -146,9 +146,17 @@ $total2 = count((array)$dataTeach);
                                             </form>
               <script>
                 $(document).ready(function(){
-                    $('#submitForm').on('click',function(){ 
+                    $('#submitForm').on('click',function(e){ 
+                        e.preventDefault();
                         if($('#W3NF_9829_c21').val() == '' || $('#W3NF_9831_c83').val() == '' || $('#W3NF_9830_c52').val() == '' ||  $('#W3NF_9991_c193').val() == ''){
-                            alert('Vui lòng nhập đủ thông tin !');
+                            $.notify({
+                                  icon: 'pe-7s-gift',
+                                  message: "Vui lòng nhập đầy đủ thông tin"
+
+                                  },{
+                                type: 'warning',
+                                timer: 1000
+                            });
 
                         }else{ 
                             var data = {

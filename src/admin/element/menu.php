@@ -1,6 +1,8 @@
 <?php 
 
 use minapp\siteModel;
+use minapp\service\getByMumber;
+
 $user = new siteModel('userlogin');
 $datauser = $user->getAll();
 $datauser = json_decode($datauser);
@@ -8,9 +10,11 @@ $datauser = $datauser->data[0];
 
 // var_dump($datauser);
 
+// $img = new getByMumber();
+$img = getByMumber::getImage($datauser->image);
+$permission = getByMumber::getPermission($datauser->u_id);
 
-
- ?>
+?>
 
 <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
@@ -58,7 +62,7 @@ $datauser = $datauser->data[0];
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <img src="" alt="Avatar" class="avatar"> 
+                            <img src="<?php echo $img; ?>" alt="Avatar" class="avatar"> 
                         </li>
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -79,7 +83,7 @@ $datauser = $datauser->data[0];
                               </ul>
                         </li>
                         <li>
-                            <a href="logout.html">
+                            <a id="logout" href="logout.html">
                                 <p>Log out</p>
                             </a>
                         </li>
@@ -88,3 +92,39 @@ $datauser = $datauser->data[0];
                 </div>
             </div>
         </nav>
+        <script>
+            $(document).ready(function(){
+                $('#logout').on('click',function(e){
+                    e.preventDefault();
+                    swal({
+                    title: 'Xác nhận logout?',
+                    text: "",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Có',
+                    cancelButtonText: 'Không',
+                    confirmButtonClass: 'btn btn-success',
+                    cancelButtonClass: 'btn btn-danger',
+                    buttonsStyling: false
+                }).then(function (confirmed) {
+                    if (!confirmed.dismiss)
+                        $.ajax({
+                            url: $('#logout').attr('href'),
+                            method: 'GET',
+                            success: function(resp){
+                                swal(
+                                    'Logout!',
+                                    'Your has been logout.',
+                                    'success'
+                                );
+                                    setTimeout(function(){
+                                        location.reload();
+                                    }, 1000);
+                            }
+                        });
+                }, function (dismiss) {
+
+                });
+                });
+            });
+        </script>
