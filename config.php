@@ -28,10 +28,10 @@ function check_mod_rewrite(){
 $path = $config['source'];
 $RouteRoot = $config['route_root'];
 
-// if(check_mod_rewrite())? $admin_route = 'admin.html' : $admin_route = $config['root_admin'];
+$admin_route = check_mod_rewrite() ? 'admin.html' : $config['root_admin'];
 
 function admin_route(){
-	echo "".$admin_route;
+	echo "".$GLOBALS['admin_route'];
 }
 
 //The function returns the path or file path

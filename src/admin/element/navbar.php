@@ -28,15 +28,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="admin-home.html">
                         <i class="pe-7s-note2"></i>
-                        <p>Table List</p>
+                        <p>Home</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="admin-list-banner.html">
                         <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
+                        <p>Banner list</p>
                     </a>
                 </li>
                 <li>

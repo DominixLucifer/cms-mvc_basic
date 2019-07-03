@@ -224,24 +224,25 @@ class Controller
             $where = 'id=1';
             $actor = new siteModel($table);
             $data['mapIframe'] = htmlspecialchars($data['mapIframe']);
-            if($file['image']['name'] != ''){
+            if($file['files']['name'] != ''){
                 unset($data['key']);
-                $result = $this->imageUpload($file);
+                $result = $this->imageUploadPost($file);
                 if($result){
                     $data['logoSite'] =  $result;
                     $reponsive = $actor->update($data,$where);
-                    return '<html><script>window.location = "index.php?route=admin-home";</script></html>';
+                    return '<html><script>window.location = "admin-home.html";</script></html>';
                 }else{
 
-                    return '<html><script>window.location = "index.php?route=admin-home";</script></html>';
+                    return '<html><script>window.location = "admin-home.html";</script></html>';
+                    //return $result;
                 }
             }else{
                 unset($data['key']);
                 $reponsive = $actor->update($data,$where);
-                return '<html><script>window.location = "index.php?route=admin-home";</script></html>';
+                return '<html><script>window.location = "admin-home.html";</script></html>';
             }
         }else{
-            return '<html><script>window.location = "index.php?route=admin";</script></html>';
+            return '<html><script>window.location = "admin-home.html";</script></html>';
         }
     }
     public function postAddBanner($data,$table,$file){
@@ -352,6 +353,33 @@ if(!empty($data["files"]["type"])){
 
 
 
+
+}
+
+    private function imageUploadPost($data){
+        $target_dir = "src/asset/upload";
+        $uploadedFile ;
+if(!empty($data["files"]["type"])){
+        $fileName = 'mtsocial_'.time().'_'.$data['files']['name'];
+        $valid_extensions = array("jpeg", "jpg", "png");
+        $temporary = explode(".", $data["files"]["name"]);
+        $file_extension = end($temporary);
+        if(($data["files"]["type"] == "image/png") || ($data["files"]["type"]== "image/jpg") || ($data["files"]["type"] == "image/jpeg")){
+            $sourcePath = $data['files']['tmp_name'];
+            $targetPath = $target_dir."/".$fileName;
+            if(move_uploaded_file($sourcePath,$targetPath)){
+                $uploadedFile = $targetPath;
+                return $uploadedFile;
+            }else{
+                return 0;
+            }
+        }else{
+            return 0;
+        }
+
+    }else{
+        return 0;
+    }
 
 }
 
