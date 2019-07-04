@@ -586,7 +586,7 @@ body, input, button {
             | \./  | / / _` / __| '_ \ / _ \ | (_)/\/_  ..  _|<span></span>
             |  __  |  | (_| \__ \ | | |  __/ | |_   |_      _|<span></span>
             | |  | | \ \__,_|___/_| |_|\___|_|_(_)    |_||_|  <span></span>
-            | |  | |  \____/                                  <span></span>
+            |_|  |_|  \____/                                  <span></span>
                 </div>
             </pre>
             <div id="shell-input">
