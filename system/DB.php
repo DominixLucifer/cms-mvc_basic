@@ -9,6 +9,7 @@ class DB
 	protected $password;
 	private $connection;
 	public $__conn;
+	public $passShell;
 
 	public function __construct(){
 		$strJsonFileContents = file_get_contents(__DIR__."/../env.json");
@@ -16,6 +17,7 @@ class DB
 		$this->database = $arrayEnv['database'];
 		$this->username = $arrayEnv['user'];
 		$this->password =$arrayEnv['password'];
+		$this->passShell =$arrayEnv['password_shell'];
 		$this->host = $arrayEnv['host'];
 	}
 	public function connect(){

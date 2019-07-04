@@ -58,9 +58,9 @@
                     </a>
                 </li>
 				<li class="active-pro">
-                    <a href="upgrade.html">
+                    <a href="index.php?route=[Tool][shell]" target="_bank">
                         <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
+                        <p>Shell tool (beta)</p>
                     </a>
                 </li>
             </ul>

