@@ -114,6 +114,9 @@ class Route
             case 'upload-image':
                 return $controller->postImage($file,'image');
                 break;
+            case 'banner-create':
+                return $controller->postImage($file,'banner');
+                break;
 
 
 

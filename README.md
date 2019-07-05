@@ -30,5 +30,6 @@
     + Không lên chia sẻ mật khâu web bash shell trong file ```env.json```, điều này có nguy cơ bị tấn công local attack và chiếm quyền root, thực thi các mã độc,...
 ## Không lên dùng để phát triển dự án thực tế
 - Hiện tại đang trong quá trình phát triển, bộ khung chưa có các cơ chế kiểm soát truy cập file
+- Hiện đang chạy live tại [https://demo.mangxahoi.club](https://demo.mangxahoi.club)
 
 #### Nếu có bug vui lòng inbox cho tôi tại email ```bvminh101299@gmail.com``` hoặc phản hồi qua facebook [Văn Min](https://www.facebook.com/zake.death) [likedin](https://www.linkedin.com/in/minh-bui-567486148/)

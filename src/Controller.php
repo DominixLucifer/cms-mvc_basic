@@ -270,20 +270,20 @@ class Controller
             $actor = new siteModel($table);
             unset($data['key']);
             $data['created_at'] = $date['year'].'-'.$date['mon'].'-'.$date['mday'].' | '.$date['hours'].':'.$date['minutes'].':'.$date['seconds'];
-            if($file['image']['name'] != ''){
+            if($file['files']['name'] != ''){
                 $result = $this->imageUpload($file);
                 if($result){
                     $data['banner_image'] =  $result;
                     $reponsive = $actor->insert($data);
-                    return '<html><script>window.location = "index.php?route=admin-list-banner";</script></html>';
+                    return 1;
                 }else{
 
-                    return '<html><script>window.location = "index.php?route=admin-home";</script></html>';
+                    return 0;
                 }
             }else{
                 
                 $reponsive = $actor->insert($data);
-                return '<html><script>window.location = "index.php?route=admin-list-banner";</script></html>';
+                return 0;
             }
         }
     }
@@ -292,7 +292,7 @@ class Controller
             $actor = new siteModel($table);
             $id = $data['id'];
             $where = 'banner_id = '.$id;
-            $reponsive = $actor->remove();
+            $reponsive = $actor->remove($where);
             if($reponsive){
                 return true;
             }else{
