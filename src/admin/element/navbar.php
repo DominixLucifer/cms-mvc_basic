@@ -41,7 +41,7 @@
                 </li>
                 <li>
                     <a href="guests-contact.html">
-                        <i class="pe-7s-map-marker"></i>
+                        <i class="pe-7s-mail-open-file"></i>
                         <p>Guests contact</p>
                     </a>
                 </li>

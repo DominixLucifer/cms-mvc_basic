@@ -117,6 +117,9 @@ class Route
             case 'upload-image':
                 return $controller->postImage($file,'image');
                 break;
+            case 'active-contact':
+                return $controller->activeContact($data,'contact');
+                break;
            
 
 

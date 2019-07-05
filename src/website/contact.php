@@ -171,7 +171,7 @@ $total2 = count((array)$dataTeach);
                             });
                         }else{
                          $.ajax({
-                            url : '/index.php',
+                            url : <?php PostRoute(); ?>,
                             type : 'POST',
                             headers: {
                                 "accept": "application/json",
@@ -183,6 +183,7 @@ $total2 = count((array)$dataTeach);
                                 phone : $('#W3NF_9820_c143').val(),
                                 category : $('#W3NF_9823_c281').val(),
                                 c_ask : $('#W3NF_9821_c225').val(),
+                                status : 0,
                                 
                                 key : 'submit-contact'
 

@@ -99,6 +99,7 @@ create TABLE contact(
 	phone varchar(15) not null,
 	category varchar(50) not null,
 	c_ask text not null,
+	status int not null,
 	created_at text not null
 );
 create TABLE teach(

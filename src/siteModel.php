@@ -41,7 +41,7 @@ class siteModel
     // loop data
     foreach ($data as $key => $value){
         $field_list .= ",$key";
-        $value_list .= ",'".$value."'";
+        $value_list .= ",'".mysqli_real_escape_string($this->connect->__conn,$value)."'";
     }
  
     $sql = 'INSERT INTO '.$this->tableName. '('.trim($field_list, ',').') VALUES ('.trim($value_list, ',').')';

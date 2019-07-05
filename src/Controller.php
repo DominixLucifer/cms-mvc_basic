@@ -170,7 +170,6 @@ class Controller
 
     }
     public function PostContact($data,$table){
-        $data = (array) $data;
         $date = getdate();
         if($data['fullname'] == '' ||  $data['phone'] == '' || $data['email'] == ''){
             return 0;
@@ -307,6 +306,20 @@ class Controller
             }else{
                 return false;
             }
+
+        }
+    }
+    public function activeContact($data,$table){
+        if(isset($_SESSION['user'])){
+            $actor = new siteModel($table);
+            $id = $data['c_id'];
+            $where = 'c_id = '.$id;
+            unset($data['key']);
+            $reponsive = $actor->update($data,$where);
+            
+            return $reponsive;
+
+            
 
         }
     }
