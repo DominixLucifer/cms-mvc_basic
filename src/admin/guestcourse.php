@@ -13,7 +13,7 @@
 
 <?php 
 use minapp\siteModel;
-$home = new siteModel('contact');
+$home = new siteModel('findmaster');
 $dataHome = $home->getAll();
 $dataHome = json_decode($dataHome);
 $dataHome = $dataHome->data;
@@ -46,15 +46,22 @@ $dataHome = $dataHome->data;
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th class="text-center" style="width:5%">ID</th>
-                                    <th class="text-center" style="width:5%">Họ và tên khách</th>
-                                    <th class="text-center" style="width:5%">Email</th>
-                                    <th class="text-center" style="width:5%">Số điện thoại</th>
-                                    <th class="text-center" style="width:5%">Thể loại</th>
-                                    <th class="text-center" style="width:50%">Câu hỏi</th>
-                                    <th class="text-center" style="width:5%">Trạng thái</th>
-                                    <th class="text-center" style="width:15%">Trạng thái</th>
-                                    <th class="text-center" style="width:5%">Hành động</th>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Họ và tên khách</th>
+                                    <th class="text-center">Địa chỉ</th>
+                                    <th class="text-center">Số điện thoại</th>
+                                    <th class="text-center">email</th>
+                                    <th class="text-center">Lớp học</th>
+                                    <th class="text-center">trường</th>
+                                    <th class="text-center">Lực học</th>
+                                    <th class="text-center">Giới tính</th>
+                                    <th class="text-center">Môn đăng kí</th>
+                                    <th class="text-center">Số lượng học sinh</th>
+                                    <th class="text-center">Mục đích</th>
+                                    <th class="text-center">Câu hỏi</th>
+                                    <th class="text-center">Thời gian đk</th>
+                                    <th class="text-center">Trạng thái</th>
+                                    <th class="text-center">Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,19 +71,26 @@ $dataHome = $dataHome->data;
                                     ?>
                                     <tr>
 
-                                        <td class="text-center"><?php echo $value->c_id ?></td>
+                                        <td class="text-center"><?php echo $value->m_id ?></td>
                                         <td class="text-center"><?php echo $value->fullname ?></td>
-                                        <td class="text-center"><a href="mailto:<?php echo $value->email ?>?subject=feedback" ><?php echo $value->email ?></a></td>
+                                        <td class="text-center"><?php echo $value->address ?></td>
                                         <td class="text-center"><a href="tel:+84<?php echo $value->phone ?>"><?php echo $value->phone ?></a></td>
-                                        <td class="text-center"><?php echo $value->category ?></td>
-                                        <td><?php echo $value->c_ask ?></td>
-                                        <td class="text-center"><?php if($value->status == 0){echo '<span class="badge badge-primary">Pending</span>';}else{echo '<span class="badge badge-success">Verify</span>';}?></td>
+                                        <td class="text-center"><a href="mailto:<?php echo $value->email ?>?subject=feedback" ><?php echo $value->email ?></a></td>
+                                        <td class="text-center"><?php echo $value->stclass ?></td>
+                                        <td class="text-center"><?php echo $value->school ?></td>
+                                        <td class="text-center"><?php echo $value->learning ?></td>
+                                        <td class="text-center"><?php echo $value->sex ?></td>
+                                        <td class="text-center"><?php echo $value->subject ?></td>
+                                        <td class="text-center"><?php echo $value->sl ?></td>
+                                        <td class="text-center"><?php echo $value->purpose ?></td>
+                                        <td class="text-center"><?php echo $value->ask ?></td>
                                         <td class="text-center"><?php echo $value->created_at ?></td>
+                                        <td class="text-center"><?php if($value->status == 0){echo '<span class="badge badge-primary">Pending</span>';}else{echo '<span class="badge badge-success">Verify</span>';}?></td>
                                         <td class="text-center">
                                             <?php if($value->status == 0){ ?>
-                                            <a id="1-<?php echo  $value->c_id; ?>" href="#" class="status" title="active"><i class="fa fa-check-circle fa-2x"></i></a>
+                                            <a id="1-<?php echo  $value->m_id; ?>" href="#" class="status" title="active"><i class="fa fa-check-circle fa-2x"></i></a>
                                         <?php }else{ ?>
-                                            <a id="2-<?php echo  $value->c_id; ?>" href="#" class="status" title="delete"><i class="fa fa-trash fa-2x"></i></a>
+                                            <a id="2-<?php echo  $value->m_id; ?>" href="#" class="status" title="delete"><i class="fa fa-trash fa-2x"></i></a>
                                         <?php } ?>
                                         </td>
 
@@ -120,15 +134,16 @@ $dataHome = $dataHome->data;
                 url: <?php PostRoute(); ?>,
                 method : 'POST',
                 data : {
-                    c_id : data[1],
+                    m_id : data[1],
                     status : data[0],
-                    key : 'active-contact'
+                    key : 'active-course'
                 },
                 headers: {
                     "accept": "application/json",
                     "Access-Control-Allow-Origin":"*"
                 },
                 success : function(resp){
+                    console.log(resp);
                     if(resp==1){
 
                          $.notify({

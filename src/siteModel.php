@@ -75,7 +75,7 @@ class siteModel
 
         $sql = '';
         foreach ($data as $key => $value){
-            $sql .= "$key = '".$value."',";
+            $sql .= "$key = '".mysqli_real_escape_string($this->connect->__conn,$value)."',";
         }
  
         $sql = 'UPDATE '.$this->tableName. ' SET '.trim($sql, ',').' WHERE '.$where;

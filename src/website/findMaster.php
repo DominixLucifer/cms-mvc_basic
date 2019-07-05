@@ -366,6 +366,7 @@ $total2 = count((array)$dataTeach);
                                 sl : $('#W3NF_10076_c4112').val(),
                                 purpose : $('#purpose').val(),
                                 ask : $('#W3NF_10078_c4714').val(),
+                                status:0,
                                 key : 'submit-timgiasu'
 
                             },      

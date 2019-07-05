@@ -40,9 +40,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="guests-contact.html">
+                    <a href="#">
                         <i class="pe-7s-mail-open-file"></i>
                         <p>Guests contact</p>
+                        <ul>
+                            <li><a href="guests-contact.html"><i class="fas fa-file-signature"></i> Guests contact</a></li>
+                            <li><a href="guests-course.html"><i class="fas fa-address-card"></i> Guests course register</a></li>
+                        </ul>
                     </a>
                 </li>
                 <li>

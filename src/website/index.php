@@ -179,6 +179,7 @@ $total2 = count((array)$dataTeach);
                                 sl : '0',
                                 purpose :'Chưa nhập thông tin',
                                 ask : $('#W3NF_9991_c193').val(),
+                                status:0,
                                 key : 'submit-timgiasu'
 
                             };

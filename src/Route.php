@@ -64,6 +64,9 @@ class Route
             case 'guests-contact':
                 return $controller->guestContact();
                 break;
+            case 'guests-course':
+                return $controller->guestCourse();
+                break;
 
     		
 
@@ -119,6 +122,9 @@ class Route
                 break;
             case 'active-contact':
                 return $controller->activeContact($data,'contact');
+                break;
+            case 'active-course':
+                return $controller->activeCourse($data,'findmaster');
                 break;
            
 

@@ -80,6 +80,7 @@ create TABLE findmaster(
 	sl varchar(3),
 	purpose varchar(20),
 	ask text,
+	status int not null,
 	created_at text not null
 );
 create TABLE userlogin(
@@ -142,9 +143,6 @@ VALUES ("Sự thật sau một lời hứa", "Thúc đẩy <span>bản thân</sp
 
 		$sql .= 'INSERT INTO teach (name,email,phone,facebook,skype,description,avatar,created_at)
 VALUES ("LÃ KIM OANH - CHUYÊN GIA MAKEUP,NAIL,HAIR", "minhbv@icheck.vn","0342682117","https://fb.com/zake.death","bvminh101299","Tôi cần một tình yêu không hào nhoáng, không phô chương, một tình yêu bình thường. Tôi không cần người đàn ông giàu, tôi cần người đàn ông có ý chí. Tôi không cần người đàn ông trò chuyện với tôi hàng ngày, tôi chỉ cần một người đàn ông biết quan tâm tới tôi","51338496_611049015986424_4082011663434252288_n.jpg","'.$data.'");';
-
-		$sql .= 'INSERT INTO teach (name,email,phone,facebook,skype,description,avatar,created_at)
-VALUES ("VĂN MIN - PHP&LARAVEL, PYTHON3&DJANGO, ANGULAR", "minhbv@icheck.vn","0342682117","https://fb.com/zake.death","bvminh101299","You may only be one person to the world but with me be the world.","64352248_488525578587070_2038940461401374720_n.jpg","'.$data.'");';
 
 		$sql .= 'INSERT INTO teach (name,email,phone,facebook,skype,description,avatar,created_at)
 VALUES ("TRÀ MY PHẠM - UNKNOWN", "minhbv@icheck.vn","0342682117","https://fb.com/zake.death","bvminh101299","Đêm buông xuống chính là chiếc màn che phủ những giọt nước mắt đang rơi trên mặt tôi.Đêm là lúc nỗi buồn như rơi xuống vực sâu. Đêm làm lòng ta lạnh giá.Đêm là lúc ta suy nghĩ vê những tâm trạng buồn không tên. Đang loang lổ và giật mình tỉnh giấc vì những giọt nước mắt ướt sũng trên gối nằm ","IMG_20190316_231453.jpg","'.$data.'");';

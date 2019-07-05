@@ -115,6 +115,14 @@ class Controller
             return $this->loginAdmin();
         }
     }
+public function guestCourse(){
+        if(isset($_SESSION['user'])){
+            $template = __DIR__.'/admin/guestcourse.php';
+            return $template;
+        }else{
+            return $this->loginAdmin();
+        }
+    }
 
 
 
@@ -314,6 +322,20 @@ class Controller
             $actor = new siteModel($table);
             $id = $data['c_id'];
             $where = 'c_id = '.$id;
+            unset($data['key']);
+            $reponsive = $actor->update($data,$where);
+            
+            return $reponsive;
+
+            
+
+        }
+    }
+    public function activeCourse($data,$table){
+        if(isset($_SESSION['user'])){
+            $actor = new siteModel($table);
+            $id = $data['m_id'];
+            $where = 'm_id = '.$id;
             unset($data['key']);
             $reponsive = $actor->update($data,$where);
             

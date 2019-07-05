@@ -91,7 +91,7 @@
                     <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
-                                <h4 class="title">Tasks</h4>
+                                <h4 class="title">Guests contact</h4>
                                 <p class="category">Backend development</p>
                             </div>
                             <div class="content">
