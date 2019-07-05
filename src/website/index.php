@@ -187,6 +187,10 @@ $total2 = count((array)$dataTeach);
                             url : <?php PostRoute(); ?>,
                             type : 'POST',
                             data : data, 
+                            headers: {
+                                "accept": "application/json",
+                                "Access-Control-Allow-Origin":"*"
+                            },
                             contentType: "application/x-www-form-urlencoded;charset=utf-8",     
                         success : function (result){
                             console.log(result);

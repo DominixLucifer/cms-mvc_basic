@@ -61,6 +61,9 @@ class Route
             case 'admin-teach':
                 return $controller->adminTeach();
                 break;
+            case 'guests-contact':
+                return $controller->guestContact();
+                break;
 
     		
 
@@ -114,9 +117,7 @@ class Route
             case 'upload-image':
                 return $controller->postImage($file,'image');
                 break;
-            case 'banner-create':
-                return $controller->postImage($file,'banner');
-                break;
+           
 
 
 

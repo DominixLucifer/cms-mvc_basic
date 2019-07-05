@@ -198,6 +198,10 @@ $('#save').on('click',function(e){
             key: 'update-user',
 
           },
+          headers: {
+            "accept": "application/json",
+            "Access-Control-Allow-Origin":"*"
+          },
           success: function(resp){
             if(resp == 1){
                 $.notify({

@@ -190,6 +190,10 @@ $dataBanner = $dataBanner['data']
                 processData: false,
                 data: form_data,
                 type: 'POST',
+                headers: {
+                              "accept": "application/json",
+                              "Access-Control-Allow-Origin":"*"
+                            },
                 success: function (res) {
                     console.log(res);
                     $("#load").html(' ');
@@ -255,6 +259,10 @@ $dataBanner = $dataBanner['data']
                 data : {
                     key : 'delete-banner',
                     id : _this.id,
+                },
+                headers: {
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin":"*"
                 },
                 success : function(resp){
                     console.log(resp)

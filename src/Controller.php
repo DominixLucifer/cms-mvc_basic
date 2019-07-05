@@ -107,6 +107,15 @@ class Controller
         }
     }
 
+    public function guestContact(){
+        if(isset($_SESSION['user'])){
+            $template = __DIR__.'/admin/guestcontact.php';
+            return $template;
+        }else{
+            return $this->loginAdmin();
+        }
+    }
+
 
 
 

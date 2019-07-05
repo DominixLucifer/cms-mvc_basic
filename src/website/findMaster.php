@@ -342,6 +342,10 @@ $total2 = count((array)$dataTeach);
                          $.ajax({
                             url : <?php PostRoute(); ?>,
                             type : 'POST',
+                            headers: {
+                                "accept": "application/json",
+                                "Access-Control-Allow-Origin":"*"
+                            },
                             data : {
                                 fullname : $('#W3NF_10062_c22').val(),
                                 address : $('#W3NF_10063_c53').val(),

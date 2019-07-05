@@ -40,9 +40,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="icons.html">
-                        <i class="pe-7s-science"></i>
-                        <p>Icons</p>
+                    <a href="guests-contact.html">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Guests contact</p>
                     </a>
                 </li>
                 <li>

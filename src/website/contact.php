@@ -173,6 +173,10 @@ $total2 = count((array)$dataTeach);
                          $.ajax({
                             url : '/index.php',
                             type : 'POST',
+                            headers: {
+                                "accept": "application/json",
+                                "Access-Control-Allow-Origin":"*"
+                            },
                             data : {
                                 fullname : $('#W3NF_9819_c21').val(),
                                 email : $('#W3NF_9824_c343').val(),
