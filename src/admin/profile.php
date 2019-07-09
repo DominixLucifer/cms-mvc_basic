@@ -64,7 +64,7 @@ $style = 'background-image:    url('.asset('admin','images').'mainbg4.jpg);
                
           <div class="panel panel-default">
             <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-            <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+            <div class="panel-body"><a href="http://mangxahoi.club">mangxahoi.club</a></div>
           </div>
 <!--           
           
