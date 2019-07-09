@@ -303,11 +303,48 @@ public function guestCourse(){
             }
         }
     }
+    public function postAddTeach($data,$table,$file){
+        if(isset($_SESSION['user'])){
+            $date = getdate();
+            $actor = new siteModel($table);
+            unset($data['key']);
+            $data['created_at'] = $date['year'].'-'.$date['mon'].'-'.$date['mday'].' | '.$date['hours'].':'.$date['minutes'].':'.$date['seconds'];
+            if($file['files']['name'] != ''){
+                $result = $this->imageUpload($file);
+                if($result){
+                    $data['avatar'] =  $result;
+                    $reponsive = $actor->insert($data);
+                    return 1;
+                }else{
+
+                    return 0;
+                }
+            }else{
+                
+                $reponsive = $actor->insert($data);
+                return 0;
+            }
+        }
+    }
     public function postDelBanner($data,$table){
         if(isset($_SESSION['user'])){
             $actor = new siteModel($table);
             $id = $data['id'];
             $where = 'banner_id = '.$id;
+            $reponsive = $actor->remove($where);
+            if($reponsive){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+    }
+    public function postDelTeach($data,$table){
+        if(isset($_SESSION['user'])){
+            $actor = new siteModel($table);
+            $id = $data['id'];
+            $where = 't_id = '.$id;
             $reponsive = $actor->remove($where);
             if($reponsive){
                 return true;

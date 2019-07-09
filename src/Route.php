@@ -117,6 +117,12 @@ class Route
             case 'delete-banner':
                 return $controller->postDelBanner($data,'banner');
                 break;
+            case 'delete-teach':
+                return $controller->postDelTeach($data,'teach');
+                break;
+            case 'add-teach':
+                return $controller->postAddTeach($data,'teach',$file);
+                break;
             case 'upload-image':
                 return $controller->postImage($file,'image');
                 break;

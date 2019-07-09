@@ -50,9 +50,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="maps.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
+                    <a href="admin-teach.html">
+                        <i class="pe-7s-users"></i>
+                        <p>Teach</p>
+
                     </a>
                 </li>
                 <li>

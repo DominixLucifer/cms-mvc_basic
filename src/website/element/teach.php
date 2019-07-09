@@ -14,7 +14,7 @@
                                         <?php for($i=0;$i<$total2;$i++){ ?>
                                         <div class="item tea-item  wow slideInDown">
                                             <a href="#" class="imagez">
-                                                <img src="<?php echo asset('home','images'); ?><?php echo $dataTeach[$i]->avatar; ?>" class="img-responsive img-zoom" >
+                                                <img src="<?php echo $dataTeach[$i]->avatar; ?>" class="img-responsive img-zoom" >
                                             </a>
                                             <div class="text">
                                                 <a  class="h4 hover-mo">
@@ -24,9 +24,9 @@
                                                 <div class="icon">
                                                     <ul>
                                                         <li><a href="tel:<?php echo $dataTeach[$i]->phone; ?>  " data-toggle="tooltip" data-placement="top" title="Liên hệ "><i class="fa fa-phone"></i></a></li>
-                                                        <li><a href="" target="_blank" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-facebook"></i></a></li>
-                                                        <li><a href="mailto:" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-envelope"></i></a></li>
-                                                        <li><a href="skype:live:?chat" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-skype"></i></a></li>
+                                                        <li><a href="<?php echo $dataTeach[$i]->facebook; ?>" target="_blank" data-toggle="tooltip" data-placement="top" title=""><i class="fab fa-facebook"></i></a></li>
+                                                        <li><a href="mailto:<?php echo $dataTeach[$i]->email; ?>" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-envelope"></i></a></li>
+                                                        <li><a href="skype:live:<?php echo $dataTeach[$i]->skype; ?>?chat" data-toggle="tooltip" data-placement="top" title=""><i class="fab fa-skype"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>

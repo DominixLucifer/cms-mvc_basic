@@ -142,20 +142,20 @@ VALUES ("Sẵn sàng để đi", "Thúc đẩy <span>bản thân</span> vào tư
 VALUES ("Sự thật sau một lời hứa", "Thúc đẩy <span>bản thân</span> vào tương lai.","src/asset/upload/banner3.jpg","'.$data.'");';
 
 		$sql .= 'INSERT INTO teach (name,email,phone,facebook,skype,description,avatar,created_at)
-VALUES ("LÃ KIM OANH - CHUYÊN GIA MAKEUP,NAIL,HAIR", "minhbv@icheck.vn","0342682117","https://fb.com/zake.death","bvminh101299","Tôi cần một tình yêu không hào nhoáng, không phô chương, một tình yêu bình thường. Tôi không cần người đàn ông giàu, tôi cần người đàn ông có ý chí. Tôi không cần người đàn ông trò chuyện với tôi hàng ngày, tôi chỉ cần một người đàn ông biết quan tâm tới tôi","51338496_611049015986424_4082011663434252288_n.jpg","'.$data.'");';
+VALUES ("LÃ KIM OANH - CHUYÊN GIA MAKEUP,NAIL,HAIR", "minhbv@icheck.vn","0342682117","https://fb.com/zake.death","bvminh101299","Tôi cần một tình yêu không hào nhoáng, không phô chương, một tình yêu bình thường. Tôi không cần người đàn ông giàu, tôi cần người đàn ông có ý chí. Tôi không cần người đàn ông trò chuyện với tôi hàng ngày, tôi chỉ cần một người đàn ông biết quan tâm tới tôi","src/asset/upload/51338496_611049015986424_4082011663434252288_n.jpg","'.$data.'");';
 
 		$sql .= 'INSERT INTO teach (name,email,phone,facebook,skype,description,avatar,created_at)
-VALUES ("TRÀ MY PHẠM - UNKNOWN", "minhbv@icheck.vn","0342682117","https://fb.com/zake.death","bvminh101299","Đêm buông xuống chính là chiếc màn che phủ những giọt nước mắt đang rơi trên mặt tôi.Đêm là lúc nỗi buồn như rơi xuống vực sâu. Đêm làm lòng ta lạnh giá.Đêm là lúc ta suy nghĩ vê những tâm trạng buồn không tên. Đang loang lổ và giật mình tỉnh giấc vì những giọt nước mắt ướt sũng trên gối nằm ","IMG_20190316_231453.jpg","'.$data.'");';
+VALUES ("TRÀ MY PHẠM - UNKNOWN", "minhbv@icheck.vn","0342682117","https://fb.com/zake.death","bvminh101299","Đêm buông xuống chính là chiếc màn che phủ những giọt nước mắt đang rơi trên mặt tôi.Đêm là lúc nỗi buồn như rơi xuống vực sâu. Đêm làm lòng ta lạnh giá.Đêm là lúc ta suy nghĩ vê những tâm trạng buồn không tên. Đang loang lổ và giật mình tỉnh giấc vì những giọt nước mắt ướt sũng trên gối nằm ","src/asset/upload/IMG_20190316_231453.jpg","'.$data.'");';
 
 		$sql .= 'INSERT INTO teach (name,email,phone,facebook,skype,description,avatar,created_at)
 VALUES ("NGUYỄN THỊ CHIÊM - UNKNOWN", "minhbv@icheck.vn","0342682117","https://fb.com/zake.death","bvminh101299","Đôi khi hạnh phúc không phải là được một người yêu
 mà là có một người khiến mình yên đến quên đi tất cả.
-Đó là hạnh phúc và đó cũng là đau lòng… vậy nên 1 Mình là ổn - Khoá Tym. Thanh xuân muốn đẹp, dẹp mẹ yêu đương...","FB_IMG_1556963837757.jpg","'.$data.'");';
+Đó là hạnh phúc và đó cũng là đau lòng… vậy nên 1 Mình là ổn - Khoá Tym. Thanh xuân muốn đẹp, dẹp mẹ yêu đương...","src/asset/upload/FB_IMG_1556963837757.jpg","'.$data.'");';
 
 		$sql .= 'INSERT INTO teach (name,email,phone,facebook,skype,description,avatar,created_at)
 VALUES ("NGUYỄN HƯƠNG LY - UNKNOW", "minhbv@icheck.vn","0342682117","https://fb.com/zake.death","bvminh101299","Cô sẽ chờ cho đến khi tym cô mệt hẳn ,còn khả năng cô vẫn sẽ yêu anh...mặc dù tình yêu của cô không còn vị trong sáng tinh khiết như trc.dù tình yêu của cô bây giờ gồm sâu đậm và hận .thì vẫn là YÊU.EM tin anh vẫn đang yêu em 
 Người con gái ấy luôn chờ anh ,luôn đợi anh dẫu thế nào....
-EM HẬN ANH NHƯNG EM YÊU ANH.","zakedeath_7481d50d4b14b94e3ce89ccd0b72739d.jpg","'.$data.'");';
+EM HẬN ANH NHƯNG EM YÊU ANH.","src/asset/upload/zakedeath_7481d50d4b14b94e3ce89ccd0b72739d.jpg","'.$data.'");';
 		if(mysqli_multi_query($this->__conn,$sql)){
 			return true;
 		}else{
