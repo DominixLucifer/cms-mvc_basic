@@ -3,4 +3,7 @@ Options +FollowSymlinks
 RewriteBase / 
 ErrorDocument 404 /404.html
 RewriteRule ^([^/]*)\.html$ /index.php?route=$1 [L]
+RedirectMatch 403 ^/system/?$
+RedirectMatch 403 ^/src/?$
+RedirectMatch 403 ^/service/?$
 
