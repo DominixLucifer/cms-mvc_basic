@@ -17,8 +17,13 @@ if(isset($_GET['route'])){
 	$url = $_GET['route'];
 	$method = 'GET';
 	$route = new Route($url,$method);
+	if(isset($_GET['id'])){
+		$id = $_GET['id'];
+	}
+	
 	$route->showController();
 	require_once($route->showController());
+
 
 }else if(isset($_POST) && isset($_POST['key'])){
 

@@ -1,7 +1,7 @@
 <?php 
 
 use minapp\siteModel;
-use minapp\service\getByMumber;
+use minapp\service\getByNumber;
 
 $user = new siteModel('userlogin');
 $datauser = $user->getAll();
@@ -10,9 +10,9 @@ $datauser = $datauser->data[0];
 
 // var_dump($datauser);
 
-// $img = new getByMumber();
-$img = getByMumber::getImage($datauser->image);
-$permission = getByMumber::getPermission($datauser->u_id);
+// $img = new getByNumber();
+$img = getByNumber::getImage($datauser->image);
+$permission = getByNumber::getPermission($datauser->u_id);
 
 ?>
 

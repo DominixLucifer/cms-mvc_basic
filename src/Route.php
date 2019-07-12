@@ -10,13 +10,18 @@ class Route
 {
 	protected $routeLink;
 	protected $method;
+    protected $id;
+
     /**
-     * summary
+     * Route
      */
-    public function __construct($requestLink,$requestMethod)
+    public function __construct($requestLink,$requestMethod,$id=null)
     {
     	$this->routeLink = $requestLink;
         $this->method = $requestMethod;
+        if($id != null){
+            $this->id = $id;
+        }
     }
     public function showController(){
 
@@ -66,6 +71,12 @@ class Route
                 break;
             case 'guests-course':
                 return $controller->guestCourse();
+                break;
+            case 'list-blog':
+                return $controller->listBlog();
+                break;
+            case 'blog':
+                return $controller->editBlog();
                 break;
 
     		
@@ -131,6 +142,9 @@ class Route
                 break;
             case 'active-course':
                 return $controller->activeCourse($data,'findmaster');
+                break;
+            case 'delete-blog':
+                return $controller->postDelBlog($data,'blog');
                 break;
            
 

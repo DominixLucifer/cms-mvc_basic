@@ -23,7 +23,7 @@
         	demo.initChartist();
 
         	$.notify({
-            	icon: 'pe-7s-gift',
+            	icon: 'pe-7s-info',
             	message: "Welcome to <b>Admin Light Bootstrap Dashboard</b> - Clone by Lilyrisa (DTL)."
 
             },{
@@ -33,3 +33,6 @@
 
     	});
 	</script>
+    <script >
+tinymce.init({selector:'textarea'});
+</script>

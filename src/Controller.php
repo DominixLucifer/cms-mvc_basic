@@ -1,6 +1,7 @@
 <?php 
 namespace minapp;
 use minapp\siteModel;
+use minapp\service\template;
 
 /**
  * summary
@@ -118,6 +119,22 @@ class Controller
 public function guestCourse(){
         if(isset($_SESSION['user'])){
             $template = __DIR__.'/admin/guestcourse.php';
+            return $template;
+        }else{
+            return $this->loginAdmin();
+        }
+    }
+public function listBlog(){
+        if(isset($_SESSION['user'])){
+            $template = __DIR__.'/admin/listblog.php';
+            return $template;
+        }else{
+            return $this->loginAdmin();
+        }
+    }
+public function editBlog(){
+        if(isset($_SESSION['user'])){
+            $template = __DIR__.'/admin/editblog.php';
             return $template;
         }else{
             return $this->loginAdmin();
@@ -379,6 +396,21 @@ public function guestCourse(){
             return $reponsive;
 
             
+
+        }
+    }
+    public function postDelBlog($data,$table){
+        if(isset($_SESSION['user'])){
+            $actor = new siteModel($table);
+            $id = $data['id'];
+            $where = 'b_id = '.$id;
+            unset($data['key']);
+            $reponsive = $actor->remove($where);
+            if($reponsive){
+                return true;
+            }else{
+                return false;
+            }
 
         }
     }

@@ -5,7 +5,7 @@ use minapp\siteModel;
 /**
  * summary
  */
-class getByMumber
+class getByNumber
 {
     /**
      * summary

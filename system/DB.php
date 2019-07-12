@@ -119,6 +119,16 @@ create TABLE image(
 	url_img text not null,
 	created_at text not null
 );
+create TABLE blog(
+	b_id int PRIMARY KEY AUTO_INCREMENT,
+	title varchar(100) not null,
+	meta text not null,
+	body LONGTEXT not null,
+	id_user int,
+	image text not null,
+	created_at text not null,
+	updated_at text
+);
 ';
 		mysqli_multi_query($this->__conn,$sql);
 	}
@@ -158,7 +168,10 @@ Người con gái ấy luôn chờ anh ,luôn đợi anh dẫu thế nào....
 EM HẬN ANH NHƯNG EM YÊU ANH.","src/asset/upload/zakedeath_7481d50d4b14b94e3ce89ccd0b72739d.jpg","'.$data.'");';
 
 		$sql .= 'INSERT INTO teach (name,email,phone,facebook,skype,description,avatar,created_at)
-VALUES ("Thùy Linh Nguyễn - Tour guide", "minhbv@icheck.vn","0342682117","https://fb.com/zake.death","bvminh101299","Là con gái thì phải thật xinh và giàu, sau đó mới tính chuyện trăm năm","src/asset/upload/mtsocial_1562665530_50616702_643561262713124_8341060783592964096_n.jpg","'.$data.'");';
+VALUES ("Thùy Linh Nguyễn - Tour guide", "minhbv@icheck.vn","0342682117","https://fb.com/zake.death","bvminh101299","Là con gái thì phải thật xinh và giàu, sau đó mới tính chuyện trăm năm","src/asset/upload/NguyenThuyLinh.jpg","'.$data.'");';
+
+		$sql .= 'INSERT INTO blog (title,meta,body,id_user,image,created_at,updated_at)
+VALUES ("5 điểm mạnh của ngôn ngữ lập trình PHP", "PHP – Một cậu bé có nhiều tranh cãi trong giới lập trình viên. Vì một vài lý do, danh tiếng của PHP đã bị ảnh hưởng. Sự phát triển ban đầu của PHP đã bị thay đổi. Các thư viện chuẩn trong PHP không còn có sự gắn kết mạnh mẽ nữa. Nhiều thập kỷ trước nó còn vấp phải về vấn đề bảo mật. Và cộng đồng đa dạng của nó tiếp tục tung ra những phiên bản PHP tốt cũng như PHP chưa tốt","1. One Data Structure To Rule Them All (Một cấu trúc dữ liệu quy định tất cả) Đừng ngạc nhiên khi đây là điểm mạnh đầu tiên của PHP. PHP có bộ sưu tập đồ sộ các thư viện , và nó khiến chúng ta ngộ nhận rằng PHP array thực sự ra lệnh bảng băm. Nhưng … chúng ta phải thừa nhận điều này:Nếu bạn được yêu cầu tạo một cấu trúc dữ liệu cho một ngôn ngữ lập trình, và được yêu cầu làm cho nó đơn giản để dễ sử dụng, rất linh hoạt và tương đối nhanh về hiệu năng, tôi sẽ trỏ tới các mảng của PHP.Người bình thường có thể nhận thấy những thứ xấu xí của cấu trúc dữ liệu này, và hoàn toàn đồng ý … ngoại trừ rằng mảng trong PHP rất hữu ích.<br/>2. Web-first (Ngôn ngữ dành cho WEB)W3 Techs đã ra báo cáo tháng 5 năm 2014 của họ và không ngạc nhiên khi họ chỉ ra rằng các trang web viết bằng PHP chiếm nhiều nhất trên thế giới: PHP chiếm  82.0% các trang web có ngôn ngữ lập trình phía máy chủ mà chúng tôi biết.Tại sao PHP lại thành công vang dội? Chắc chắn có nhiều lý do, nhưng một trong số đó là PHP thực tế được xây dựng như một ngôn ngữ web. Không cần phải khởi động web trong mã PHP của bạn. Từ dòng mã đầu tiên, bạn có thể giả định rằng bạn đang chạy trên một máy chủ web.",null,"src/asset/upload/NguyenThuyLinh.jpg","'.$data.'","");';
 		if(mysqli_multi_query($this->__conn,$sql)){
 			return true;
 		}else{

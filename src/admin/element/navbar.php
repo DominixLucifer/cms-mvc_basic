@@ -29,13 +29,13 @@
                 </li>
                 <li>
                     <a href="admin-home.html">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-home"></i>
                         <p>Home</p>
                     </a>
                 </li>
                 <li>
                     <a href="admin-list-banner.html">
-                        <i class="pe-7s-news-paper"></i>
+                        <i class="pe-7s-photo-gallery"></i>
                         <p>Banner list</p>
                     </a>
                 </li>
@@ -57,10 +57,14 @@
                     </a>
                 </li>
                 <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
+                    <a href="#">
+                        <i class="pe-7s-id"></i>
+                        <p>Blog</p>
                     </a>
+                    <ul>
+                        <li><a href="blog.html"><i class="fas fa-list-alt"></i> Create blog</a></li>
+                        <li><a href="list-blog.html"><i class="fab fa-pied-piper-pp"></i> List blog</a></li>
+                    </ul>
                 </li>
 				<li class="active-pro">
                     <a href="index.php?route=[Tool][shell]" target="_bank">

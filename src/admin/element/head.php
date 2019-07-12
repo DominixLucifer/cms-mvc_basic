@@ -26,12 +26,18 @@
 
 
 
+
     <!--     Fonts and icons     -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="<?php echo asset('admin','pe-icon-7-stroke.css'); ?>" rel="stylesheet" />
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script defer src="<?php echo asset('admin','all.js'); ?>"></script>
+    <script defer src="<?php echo asset('admin','jquery.validate.min.js'); ?>"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    
+    
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
+ 
