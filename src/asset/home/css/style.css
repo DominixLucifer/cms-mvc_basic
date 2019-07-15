@@ -501,6 +501,7 @@ p {
 
 .row-1 .list img {
     width: 100%;
+    object-fit: cover;
 }
 
 .row-1 .list-pr .content .h4 {

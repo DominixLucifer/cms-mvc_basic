@@ -56,8 +56,8 @@ $dataTeach = $dataTeach['data'];
                     <div class="card-body">
                         <hr>
                         
-
-                 <table id="fresh-table" class="table">
+                <div class="col-md-12" style="overflow-x:auto;">
+                 <table id="fresh-table" class="table table-responsive">
                         <thead>
                             <th data-field="id" data-sortable="true">ID</th>
                             <th data-field="name" data-sortable="true">TITLE</th>
@@ -74,26 +74,26 @@ $dataTeach = $dataTeach['data'];
                             <?php for($i=0;$i<count($dataTeach);$i++) {
                                 
                              ?>
-                            <tr id="sub_<?php echo $dataTeach[$i]['t_id'] ?>">
+                            <tr id="sub_<?php echo $dataTeach[$i]['b_id'] ?>">
                                 <td><?php echo $dataTeach[$i]['b_id'] ?></td>
                                 <td><?php echo $dataTeach[$i]['title'] ?></td>
                                 <td><p id="MetatextArea<?php echo $dataTeach[$i]['b_id'] ?>"></p> <a href="#" id="MetatoggleButton<?php echo $dataTeach[$i]['b_id'] ?>"></a></td>
                                 <script>
-                                  var statusMeta = "less";
-                                  var textMeta="<?php echo $dataTeach[$i]['meta'] ?>";
+                                  var statusMeta<?php echo $dataTeach[$i]['b_id'] ?> = "less";
+                                  var textMeta<?php echo $dataTeach[$i]['b_id'] ?> =`<?php echo htmlspecialchars($dataTeach[$i]['meta']) ?>`;
                                   $("#MetatoggleButton<?php echo $dataTeach[$i]['b_id'] ?>").html("See More");
-                                  $("#MetatextArea<?php echo $dataTeach[$i]['b_id'] ?>").html(""+textMeta.slice(0,70));
+                                  $("#MetatextArea<?php echo $dataTeach[$i]['b_id'] ?>").html(""+textMeta<?php echo $dataTeach[$i]['b_id'] ?>.slice(0,70));
                                  
                                       $('#MetatoggleButton<?php echo $dataTeach[$i]['b_id'] ?>').on('click',function(e){
                                         e.preventDefault();
-                                        if (statusMeta == "less") {
-                                                $("#MetatextArea<?php echo $dataTeach[$i]['b_id'] ?>").html(textMeta).fadeIn('slow');
+                                        if (statusMeta<?php echo $dataTeach[$i]['b_id'] ?> == "less") {
+                                                $("#MetatextArea<?php echo $dataTeach[$i]['b_id'] ?>").html(textMeta<?php echo $dataTeach[$i]['b_id'] ?>).fadeIn('slow');
                                                $("#MetatoggleButton<?php echo $dataTeach[$i]['b_id'] ?>").html("See Less");
-                                                statusMeta = "more";
-                                            } else if (statusMeta == "more") {
-                                                $("#MetatextArea<?php echo $dataTeach[$i]['b_id'] ?>").html(""+textMeta.slice(0,70)).fadeIn('slow');
+                                                statusMeta<?php echo $dataTeach[$i]['b_id'] ?> = "more";
+                                            } else if (statusMeta<?php echo $dataTeach[$i]['b_id'] ?> == "more") {
+                                                $("#MetatextArea<?php echo $dataTeach[$i]['b_id'] ?>").html(""+textMeta<?php echo $dataTeach[$i]['b_id'] ?>.slice(0,70)).fadeIn('slow');
                                                 $("#MetatoggleButton<?php echo $dataTeach[$i]['b_id'] ?>").html("See More");
-                                                statusMeta = "less";
+                                                statusMeta<?php echo $dataTeach[$i]['b_id'] ?> = "less";
                                             
                                         }
                                       });
@@ -104,21 +104,21 @@ $dataTeach = $dataTeach['data'];
                                 <td><p id="textArea<?php echo $dataTeach[$i]['b_id'] ?>"></p> <a href="#" id="toggleButton<?php echo $dataTeach[$i]['b_id'] ?>"></a></td>
                                 
                                 <script>
-                                  var status = "less";
-                                  var text="<?php echo $dataTeach[$i]['body'] ?>";
+                                  var status<?php echo $dataTeach[$i]['b_id'] ?> = "less";
+                                  var text<?php echo $dataTeach[$i]['b_id'] ?> =`<?php echo htmlspecialchars( $dataTeach[$i]['body']); ?>`;
                                   $("#toggleButton<?php echo $dataTeach[$i]['b_id'] ?>").html("See More");
-                                  $("#textArea<?php echo $dataTeach[$i]['b_id'] ?>").html(""+text.slice(0,70));
+                                  $("#textArea<?php echo $dataTeach[$i]['b_id'] ?>").html(""+text<?php echo $dataTeach[$i]['b_id'] ?>.slice(0,70));
                                  
                                       $('#toggleButton<?php echo $dataTeach[$i]['b_id'] ?>').on('click',function(e){
                                         e.preventDefault();
-                                        if (status == "less") {
-                                                $("#textArea<?php echo $dataTeach[$i]['b_id'] ?>").html(text);
+                                        if (status<?php echo $dataTeach[$i]['b_id'] ?> == "less") {
+                                                $("#textArea<?php echo $dataTeach[$i]['b_id'] ?>").html(text<?php echo $dataTeach[$i]['b_id'] ?>);
                                                 $("#toggleButton<?php echo $dataTeach[$i]['b_id'] ?>").html("See Less");
-                                                status = "more";
-                                            } else if (status == "more") {
-                                                $("#textArea<?php echo $dataTeach[$i]['b_id'] ?>").html(""+text.slice(0,70));
+                                                status<?php echo $dataTeach[$i]['b_id'] ?> = "more";
+                                            } else if (status<?php echo $dataTeach[$i]['b_id'] ?> == "more") {
+                                                $("#textArea<?php echo $dataTeach[$i]['b_id'] ?>").html(""+text<?php echo $dataTeach[$i]['b_id'] ?>.slice(0,70));
                                                 $("#toggleButton<?php echo $dataTeach[$i]['b_id'] ?>").html("See More");
-                                                status = "less";
+                                                status<?php echo $dataTeach[$i]['b_id'] ?> = "less";
                                             
                                         }
                                       });
@@ -146,6 +146,7 @@ $dataTeach = $dataTeach['data'];
                                                        
                         </tbody>
                     </table>
+                </div>
 
 
 

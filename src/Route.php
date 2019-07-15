@@ -146,6 +146,12 @@ class Route
             case 'delete-blog':
                 return $controller->postDelBlog($data,'blog');
                 break;
+            case 'create-blog':
+                return $controller->postCreateBlog($data,'blog',$file);
+                break;
+            case 'update-blog':
+                return $controller->postUpdateBlog($data,'blog',$file);
+                break;
            
 
 

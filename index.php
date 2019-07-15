@@ -18,7 +18,7 @@ if(isset($_GET['route'])){
 	$method = 'GET';
 	$route = new Route($url,$method);
 	if(isset($_GET['id'])){
-		$id = $_GET['id'];
+		$id = str_replace('/[^0-9]/', '', (int)$_GET['id']);
 	}
 	
 	$route->showController();

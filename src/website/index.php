@@ -18,6 +18,12 @@ $dataTeach = $homeTeach->getAll();
 $dataTeach = json_decode($dataTeach);
 $dataTeach = $dataTeach->data;
 $total2 = count((array)$dataTeach);
+
+$homeblog = new siteModel('blog');
+$datablog = $homeblog->getAll();
+$datablog = json_decode($datablog);
+$datablog = $datablog->data;
+$total3 = count((array)$datablog);
  ?>
 
 <!DOCTYPE html>
@@ -72,35 +78,28 @@ $total2 = count((array)$dataTeach);
                                     </div>
                                     <div class="col-md-9 wow fadeInRight animated">
                                         <div id="owl-carousel3" class="owl-carousel owl-theme">
+                                            <?php for($i=0; $i<$total3 ;$i++){ ?>
                                             <div class="item list">
-                                                <a href="/gia-su-duc-minh-ha-noi-nd25214.html" class="imagez">
-                                                    <img class="img-responsive img-op" src="https://giasuducminh.com/mediacenter/media/images/1590/news/ava/s300_300/gia-su-lop-3-day-kem-tai-nha-uy-tin-1512483021.jpg" alt="Gia sư Đức Minh - Hà Nội">
+                                                <a href="#" class="imagez">
+                                                    <img class="img-responsive img-op" src="<?php echo $datablog[$i]->image; ?>" alt="<?php echo $datablog[$i]->title; ?>">
                                                 </a>
                                                 <div class="text">
-                                                    <a href="/gia-su-duc-minh-ha-noi-nd25214.html" class="h4">Gia sư Đức Minh - Hà Nội</a>
+                                                    <a href="#" class="h4"><?php echo $datablog[$i]->title; ?></a>
                                                     <div>
-                                                        <p>
-                                                            <br/>Trung Tâm Gia sư Đức Minh - Hà Nội, tự hào là địa chỉ tin cậy cho các bậc phụ huynh và gia ...</p>
+                                                        <?php echo $datablog[$i]->meta; ?>
                                                     </div>
                                                     <a href="/gia-su-duc-minh-ha-noi-nd25214.html"><span class="hover-mo">Xem chi tiết <i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
                                                 </div>
                                             </div>
-                                            <div class="item list">
-                                                <a href="/cong-ty-gia-su-duc-minh-nd24648.html" class="imagez">
-                                                    <img class="img-responsive img-op" src="https://giasuducminh.com/mediacenter/media/images/1590/news/ava/s300_300/logo-trung-tam-gia-su-duc-minh-1523870013.png" alt="Công ty Gia sư Đức Minh - Giá trị của thương hiệu">
-                                                </a>
-                                                <div class="text">
-                                                    <a href="/cong-ty-gia-su-duc-minh-nd24648.html" class="h4">Công ty Gia sư Đức Minh - Giá trị của thương hiệu</a>
-                                                    <div>
-                                                        <p>
-                                                            <br/>Đức Minh là một công ty hoạt động trong lĩnh vực Giáo Dục và Đào Tạo. Được thành lập năm 2003, ...</p>
-                                                    </div>
-                                                    <a href="/cong-ty-gia-su-duc-minh-nd24648.html"><span class="hover-mo">Xem chi tiết <i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-                                                </div>
-                                            </div>
+                                        <?php } ?>
+
+
 
                                         </div>
                                     </div>
+
+
+
                                 </div>
                             </div>
                         </div>

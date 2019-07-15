@@ -414,6 +414,54 @@ public function editBlog(){
 
         }
     }
+    public function postCreateBlog($data,$table,$file){
+        if(isset($_SESSION['user'])){
+            $date = getdate();
+            $actor = new siteModel($table);
+            unset($data['key']);
+            $data['created_at'] = $date['year'].'-'.$date['mon'].'-'.$date['mday'].' | '.$date['hours'].':'.$date['minutes'].':'.$date['seconds'];
+            if($file['files']['name'] != ''){
+                $result = $this->imageUpload($file);
+                if($result){
+                    $data['image'] = $result;
+                    $reponsive = $actor->insert($data);
+                    return 1;
+                }else{
+
+                    return 0;
+                }
+            }else{
+                
+                $reponsive = $actor->insert($data);
+                return 0;
+            }
+        }
+    }
+    public function postUpdateBlog($data,$table,$file){
+        if(isset($_SESSION['user'])){
+            $date = getdate();
+            $actor = new siteModel($table);
+            $where = 'b_id='.$data['id'];
+            unset($data['key']);
+            unset($data['id']);
+            $data['created_at'] = $date['year'].'-'.$date['mon'].'-'.$date['mday'].' | '.$date['hours'].':'.$date['minutes'].':'.$date['seconds'];
+            if($file['files']['name'] != ''){
+                $result = $this->imageUpload($file);
+                if($result){
+                    $data['image'] = $result;
+                    $reponsive = $actor->update($data,$where);
+                    return 1;
+                }else{
+
+                    return 0;
+                }
+            }else{
+                
+                $reponsive = $actor->update($data,$where);
+                return 1;
+            }
+        }
+    }
 
     public function postImage($data,$table){
         if(isset($_SESSION['user'])){
